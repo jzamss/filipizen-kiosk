@@ -1,5 +1,10 @@
 <script>
-	import Header from '$lib/header.svelte';
+	import Header from '$lib/header-master.svelte';
+	import Title from '$lib/title.svelte';
 </script>
 
-<Header module="Real Property Tax Billing" />
+<Header />
+<div class="h-20 bg-green-700">
+    <h1 class="text-5xl font-bold text-white text-center pt-5">Real Property Tax Billing</h1>
+</div>
+<Title module=""/>
