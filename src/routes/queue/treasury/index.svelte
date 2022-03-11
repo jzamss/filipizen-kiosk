@@ -1,12 +1,13 @@
 <script>
 	import Header from '$lib/header-master.svelte';
 	import Title from '$lib/title.svelte';
-	import Nav from '$lib/nav.svelte'
+	import Nav from '$lib/nav.svelte';
+
 </script>
 
 <Header />
 <div class="h-20 bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700">
-    <h1 class="text-5xl font-bold text-white text-center pt-5">Queue / Treasury</h1>
+    <h1 class="text-5xl font-bold text-white text-center pt-3">Queue / Treasury</h1>
 </div>
 <Title module="Select Classification"/>
 <main class="mb-auto">
@@ -23,3 +24,6 @@
 		</a>
 	</div>
 </main>
+
+
+<Nav />
