@@ -1,10 +1,26 @@
 <script>
-	import Header from '$lib/header-master.svelte';
-	import Title from '$lib/title.svelte';
+	import Header from '$lib/header.svelte';
+	import Keyboard from '$lib/keyboard/keyboard.svelte';
+	import Input from '$lib/ui/input.svelte';
+
+	let registerKeyListener = null;
+	let handleKey = null;
+	let entity = { name: '', address: '' };
 </script>
 
-<Header />
-<div class="h-20 bg-green-700">
-    <h1 class="text-5xl font-bold text-white text-center pt-5">Real Property Tax Billing</h1>
-</div>
-<Title module=""/>
+<Header module="Real Property Tax Billing" />
+
+<Input bind:value={entity.name} name="name" {registerKeyListener} placeholder="Enter name" />
+<Input
+	bind:value={entity.address}
+	name="address"
+	{registerKeyListener}
+	placeholder="Enter Address"
+/>
+
+<Keyboard
+	bind:registerKeyListener
+	bind:handleKey
+	on:keydown={(event) => (entity = handleKey(entity, event))}
+	on:return={() => console.log('return pressed')}
+/>
