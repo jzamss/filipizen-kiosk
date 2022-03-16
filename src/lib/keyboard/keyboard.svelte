@@ -24,8 +24,8 @@
 		Page1: '?123',
 		Space: ' ',
 		Shift: 'abc',
-		Enter: 'Return',
-		Backspace: 'Back'
+		Enter: 'Next',
+		Backspace: 'Delete'
 		// Enter: enterSVG,
 		// Backspace: backspaceSVG
 	};
@@ -102,7 +102,7 @@
 	$: rowData = [rowData0, rowData1];
 </script>
 
-<div class="kiosk-keyboard">
+<slot class="kiosk-keyboard" name="keyboard">
 	{#each rowData as row, i}
 		<div class="hidden" class:visible={i === page}>
 			{#each row as keys}
@@ -126,7 +126,7 @@
 			{/each}
 		</div>
 	{/each}
-</div>
+	</slot>
 
 <style>
 	button {
@@ -138,17 +138,17 @@
 		line-height: 1;
 		transform-origin: 50% 50%;
 		user-select: none;
-		background: #eee;
-		color: #111;
-		border: none;
+		background: #1e40af;
+		color: #fff;
+		border: 0px solid #000;
 		border-radius: 2px;
 		box-shadow: none;
 		flex: 1;
 		font-family: sans-serif;
-		font-size: 20px;
+		font-size: 40px;
 		font-weight: normal;
-		height: 3.5rem;
-		margin: 0.125rem;
+		height: 4rem;
+		margin: 0.1rem;
 		opacity: 1;
 		text-transform: none;
 		-webkit-tap-highlight-color: transparent;

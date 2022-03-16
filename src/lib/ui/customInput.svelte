@@ -1,6 +1,6 @@
 <script>
 	export let name;
-	export let value = '';
+	export let value = null;
 	export let placeholder = '';
 	export let registerKeyListener;
 
@@ -17,7 +17,7 @@
 	};
 </script>
 
-<div class="Input">
+<div class="customInput">
 	<slot>
 		<input
 		type="text"
@@ -25,7 +25,7 @@
 		on:focus={activate}
 		on:blur={deactivate}
 		{placeholder}
-		class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+		class="text-4xl h-20 w-10/12 ml-20 pb-2  px-2 border-2 border-black rounded shadow focus:bg-yellow-100 caret-transparent"
 	/>
 	</slot>
 </div>
