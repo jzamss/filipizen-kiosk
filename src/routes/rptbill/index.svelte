@@ -1,13 +1,13 @@
 <script>
 	import Header from '$lib/header.svelte';
 	import Keyboard from '$lib/keyboard/keyboard.svelte';
-	import Input from '$lib/ui/customInput.svelte';
+	import Input from '$lib/ui/input.svelte';
 	import Nav from '$lib/nav.svelte';
 	import Title from '$lib/title.svelte';
 
 	let registerKeyListener = null;
 	let handleKey = null;
-	let entity = { name: '', address: '' };
+	let entity = { name: '' };
 </script>
 
 <div class="h-20 bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700">
@@ -15,10 +15,12 @@
 </div>
 <Title />
 
-<Input>
-	<div slot="CustomInput">
-	</div>
-</Input>
+<div class='m-auto w-10/12'>
+	<Input bind:value={entity.name} name="name" {registerKeyListener} placeholder="Enter TD Number" >
+	</Input>
+</div>
+
+
 <br />
 <a href="rptbill/billinfo" alt="menu">
 	<div class="m-auto h-20 text-center bg-white bg-opacity-25 w-1/4 rounded-lg shadow-xl pt-1 border-slate-400 flex border">

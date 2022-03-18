@@ -1,11 +1,15 @@
 <script>
 	export let caption;
-	let clazz;
-	export { clazz as class };
+
+	function openModal() {
+    isOpenModal = true;
+  }
+
+  function closeModal() {
+    isOpenModal = false;
+  }
 </script>
 
-<button
-	class={`bg-blue-500 text-white px-10 py-2 rounded-md text-1xl font-medium hover:bg-blue-700 transition duration-500 ${
-		clazz || ''
-	} `}>{caption}</button
->
+<button alt="Queueing System" class="m-auto h-20 text-center bg-white bg-opacity-25 w-64 rounded-lg shadow-xl pt-1 mr-10 border-slate-400 flex border">
+	<p class="pt-5 pl-20 font-bold text-xl">{caption}</p>
+</button>

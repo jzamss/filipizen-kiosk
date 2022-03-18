@@ -36,8 +36,8 @@
 		z-index: 2;
 		top: 50%;
 		left: 50%;
-		height: 450px;
-		width: 400px;
+		height: 500px;
+		width: 600px;
 		transform: translate(-50%, -50%);
 		background: #fff;
 		filter: drop-shadow(0 0 20px #333);

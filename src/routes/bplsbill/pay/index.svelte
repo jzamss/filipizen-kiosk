@@ -2,32 +2,36 @@
 	import Header from '$lib/header.svelte';
 	import Keyboard from '$lib/keyboard/keyboard.svelte';
 	import Input from '$lib/ui/input.svelte';
+	import Nav from '$lib/nav.svelte';
+	import Title from '$lib/title.svelte';
 
 	let registerKeyListener = null;
 	let handleKey = null;
-	let entity = { name: '', address: '' };
+	let entity = { name: '' };
 </script>
 
-<form>
-<Input bind:value={entity.name} name="name" {registerKeyListener} placeholder="Enter name" class="text-sm text-gray-base w-full mr-3 py-5 px-4 h-2 border border-gray-200 rounded mb-2" />
+<div class="h-20 bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700">
+    <h1 class="text-5xl font-bold text-white text-center pt-3 pb-3">Real Property Tax Billing </h1>
+</div>
+<Title />
 
-    <input aria-label="Enter your email address" 
-           type="text" placeholder="Email address" 
-           class="text-sm text-gray-base w-full 
-                  mr-3 py-5 px-4 h-2 border 
-                  border-gray-200 rounded mb-2" />
-    <input aria-label="Enter your password" 
-           type="password" placeholder="Password"
-           class="text-sm text-gray-base w-full mr-3 
-                  py-5 px-4 h-2 border border-gray-200 
-                  rounded mb-2" />
+<div class='m-auto w-10/12'>
+	<Input bind:value={entity.name} name="name" {registerKeyListener} placeholder="Enter BIN or Application Number" >
+	</Input>
+</div>
 
-    <button type="submit"
-            class="bg-green-400 w-full mt-4">
-        Login
-    </button>
-</form>
-<div>
+
+<br />
+<a href="/bplsbill/pay/billinfo" alt="menu">
+	<div class="m-auto h-20 text-center bg-white bg-opacity-25 w-1/4 rounded-lg shadow-xl pt-1 border-slate-400 flex border">
+		<img src="/static/icons/back.png" alt="menu" class="h-12 pr-20  mt-3 rotate-180"/>
+		<p class="pt-5 font-bold text-xl">Next</p>
+	</div> 
+</a>
+<Nav />
+
+
+<footer class="mb-96 mt-20">
 	<slot name="keyboard">
 		<Keyboard
 			bind:registerKeyListener
@@ -36,4 +40,4 @@
 			on:return={() => console.log('return pressed')}
 		/>
 	</slot>
-</div>
+</footer>

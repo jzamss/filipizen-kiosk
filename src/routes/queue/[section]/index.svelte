@@ -46,8 +46,20 @@
 	<h1 class="text-center text-4xl pt-5 pb-5">Queue Ticket</h1>
 	<h2 class="text-center text-2xl pt-5">Your Queue Number</h2>
 	<h1 class="text-center text-9xl pt-5 pb-5 text-bold mb-5">R-101</h1>
-	<button type="button" on:click={() => isOpenModal=false} class="flex items-center text-4xl bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">Print</button>
-	<p class="text-center text-1xl pt-5">Please wait until your number is called</p>
+
+	<div class="flex text-center m-auto">
+		<button alt="Queueing System" class="ml-8 bg-gray-400 h-20 pl-20 text-center w-64 rounded-lg shadow-xl pt-1 border-slate-400 flex border" on:click={() => isOpenModal=false} >
+			<div class="">
+				<p class="pt-5 font-bold text-xl">Cancel</p>
+			</div> 
+		</button>
+		<button alt="Queueing System" class="ml-5 bg-white h-20 pl-20 text-center w-64 rounded-lg shadow-xl pt-1 border-slate-400 flex border" on:click={() => isOpenModal=false} >
+		  <div class="">
+			  <p class="pt-5 font-bold text-xl">Print</p>
+		  </div> 
+	  </button>
+	</div>
+<p class="text-center text-1xl pt-5">Please wait until your number is called</p>
 </Modal>
 
 

@@ -22,7 +22,7 @@
 	const swaps = {
 		Page0: 'abc',
 		Page1: '?123',
-		Space: ' ',
+		Space: 'Space',
 		Shift: 'abc',
 		Enter: 'Next',
 		Backspace: 'Delete'
@@ -140,15 +140,15 @@
 		user-select: none;
 		background: #1e40af;
 		color: #fff;
-		border: 0px solid #000;
-		border-radius: 2px;
+		border: 1px solid #000;
+		border-radius: 0px;
 		box-shadow: none;
 		flex: 1;
 		font-family: sans-serif;
 		font-size: 40px;
 		font-weight: normal;
 		height: 4rem;
-		margin: 0.1rem;
+		margin: 0rem;
 		opacity: 1;
 		text-transform: none;
 		-webkit-tap-highlight-color: transparent;
@@ -159,10 +159,9 @@
 	}
 
 	button:active {
-		background: #ccc;
-		border: none;
+		background: #fff;
 		box-shadow: none;
-		color: #111;
+		color: #000;
 		opacity: 1;
 		transform: none;
 	}

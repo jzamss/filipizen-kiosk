@@ -25,7 +25,7 @@
 		on:focus={activate}
 		on:blur={deactivate}
 		{placeholder}
-		class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-	/>
+		class="text-2xl shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+		/>
 	</slot>
 </div>

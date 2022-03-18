@@ -1,14 +1,29 @@
 <script>
-	import Keyboard from '$lib/keyboard/keyboard.svelte';
 	import Input from '$lib/ui/input.svelte';
 	import Nav from '$lib/nav.svelte';
 	import Title from '$lib/title.svelte';
   import Modal from '$lib/ui/modal.svelte';
+  import Label from '$lib/ui/label.svelte';
+  import Dropdown from '$lib/ui/drop-down.svelte'
+  import Onecolumn from '$lib/ui/one-column.svelte'
+  import Twocolumn from '$lib/ui/two-column.svelte'
 
+  let options = [
+		{ id: '1', value: '2022' },
+		{ id: '2', value: '2021' },
+		{ id: '3', value: '2020'}
+	];
 
-	let registerKeyListener = null;
-	let handleKey = null;
-	let entity = { name: '', address: '' };
+  let quarters = [
+		{ id: '1', qtr: '1' },
+		{ id: '2', qtr: '2' },
+		{ id: '3', qtr: '3'},
+    { id: '4', qtr: '4'}
+	];
+
+  let selected_id = '1';
+  let selected_qtr = '1';
+
   let isOpenModal = false;
 
   function openModal() {
@@ -20,56 +35,39 @@
   }
 
 </script>
+
+<div class="h-20 bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700">
+  <h1 class="text-5xl font-bold text-white text-center pt-3 pb-3">Real Property Tax Billing </h1>
+</div>
 <Title module="Billing Information"/>
 
-
 <form class="m-auto w-full max-w-lg">
-    <div class="flex flex-wrap -mx-3 mb-6">
-      <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="bill-no">
-          Bill No.
-        </label>
-        <Input value='56001:00210165090'></Input>
-      </div>
-      <div class="w-full md:w-1/2 px-3">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
-          Bill Date
-        </label>
-        <Input value='2021-10-15 15:24:02'></Input>
-     </div>
+  <Twocolumn>
+    <div slot='slot1'>
+      <Label caption='Bill No.'></Label>
+      <Input value='56001:00210165090'></Input>
     </div>
-    <div class="flex flex-wrap -mx-3 mb-6">
-      <div class="w-full px-3">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
-          TD No.
-        </label>
-        <Input value='F-000023'></Input>
-      </div>
+    <div slot='slot2'>
+      <Label caption='Bill Date'></Label>
+      <Input value='2021-10-15 15:24:02'></Input>
     </div>
-    <div class="flex flex-wrap -mx-3 mb-6">
-      <div class="w-full px-3">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
-          PIN
-        </label>
-        <Input value='025-04-036B002'></Input>
-      </div>
-    </div>
-    <div class="flex flex-wrap -mx-3 mb-6">
-      <div class="w-full px-3">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
-          Bill Period
-        </label>
+  </Twocolumn>
+    <Onecolumn>
+      <Label caption='TD No.'></Label>
+      <Input value='F-000023'></Input>
+    </Onecolumn>
+    <Onecolumn>
+      <Label caption='PIN'></Label>
+      <Input value='025-04-036B002'></Input>
+    </Onecolumn>
+    <Onecolumn>
+      <Label caption='Bill Period'> </Label>
         <Input value='24Q, 2021'></Input>
-      </div>
-    </div>
-    <div class="flex flex-wrap -mx-3 mb-6">
-      <div class="w-full px-3">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
-          Amount Due
-        </label>
-        <Input value='2,571.35'></Input>
-      </div>
-    </div>
+    </Onecolumn>
+    <Onecolumn>
+      <Label caption='Bill Period'> </Label> 
+      <Input value='2,571.35'></Input>
+    </Onecolumn>
 </form>
 
 <br />
@@ -78,60 +76,46 @@
         <p class="pt-5 pl-20 font-bold text-xl">Pay Option</p>
   </button>
 
-  <a href="rptbill/billinfo" alt="menu" class="m-auto h-20 text-center bg-white bg-opacity-25 w-64  rounded-lg shadow-xl pt-1 border-slate-400 flex border">
+  <a href="/rptbill/transaction" alt="menu" class="m-auto h-20 text-center bg-white bg-opacity-25 w-64  rounded-lg shadow-xl pt-1 border-slate-400 flex border">
       <img src="/static/icons/back.png" alt="menu" class="h-12 pr-5 mt-3 rotate-180"/>
-      <p class="pt-5 font-bold text-xl">Next</p>
+      <p class="pt-5 font-bold text-xl">Confirm Payment</p>
   </a>
 </div>
+
+
 <Modal open={isOpenModal} on:cancel={() => isOpenModal=false}>
-  <h1 class="text-center text-4xl pt-5 pb-5">Pay Options</h1>
-  <h2> </h2>
-  <br />
-  <div class="w-ful px-20">
-      <label class="block uppercase tracking-wide text-gray-700 text-xl font-bold mb-2" for="year-bill">
-        Year Bill
-      </label>
-      <div class="relative">
-        <select class="block appearance-none text-3xl w-full bg-gray-200 border-2 border-gray-700 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="year-bill">
-          <option>2022</option>
-          <option>2021</option>
-          <option>2020</option>
-        </select>
-        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-          <svg class="fill-current h-8 w-8" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-        </div>
-      </div>
-  </div>
-  <br/>
-  <div class="w-ful px-20">
-      <label class="block uppercase tracking-wide text-gray-700 text-xl font-bold mb-2" for="year-bill">
-        Quarter to Bill
-      </label>
-      <div class="relative">
-        <select class="block appearance-none w-full text-3xl bg-gray-200 border-2 border-gray-700 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="year-bill">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-        </select>
-        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-          <svg class="fill-current h-8 w-8" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-        </div>
-      </div>
-  </div>
-  <br />
-  <hr />
-  <br />
-  <div class="m-auto items-center flex">
-      <button alt="Queueing System" class="bg-gray-400 h-20 pl-20 text-center w-64 rounded-lg shadow-xl pt-1 border-slate-400 flex border" on:click={closeModal} >
+  
+<h1 class="text-center text-4xl pt-5 pb-10 ">Pay Options</h1>
+<Dropdown name="YEAR BILL">
+  <select  bind:value={selected_id} class="block appearance-none text-3xl w-full bg-gray-200 border-2 border-gray-700 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+    {#each options as option}
+      <option value={option.id}>
+        {option.value}
+      </option>
+    {/each}
+  </select>
+</Dropdown>
+<Dropdown name="QUARTER TO BILL">
+  <select  bind:value={selected_qtr} class="block appearance-none text-3xl w-full bg-gray-200 border-2 border-gray-700 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+    {#each quarters as quarter}
+      <option value={quarter.id}>
+        {quarter.qtr}
+      </option>
+    {/each}
+  </select>
+</Dropdown>
+
+  <div class="absolute inset-x-0 bottom-10 flex text-center m-auto">
+      <button alt="Queueing System" class="ml-8 bg-gray-400 h-20 pl-20 text-center w-64 rounded-lg shadow-xl pt-1 border-slate-400 flex border" on:click={closeModal} >
           <div class="">
               <p class="pt-5 font-bold text-xl">Cancel</p>
           </div> 
       </button>
-      <a href="rptbill/billinfo" alt="menu" class="m-auto h-20 text-center bg-white bg-opacity-25 w-64  rounded-lg shadow-xl pt-1 border-slate-400 flex border">
-          <img src="/static/icons/back.png" alt="menu" class="h-12 pr-5 mt-3 rotate-180"/>
-          <p class="pt-5 font-bold text-xl">OK</p>
-      </a>
+      <button alt="Queueing System" class="ml-5 bg-white h-20 pl-20 text-center w-64 rounded-lg shadow-xl pt-1 border-slate-400 flex border" on:click={closeModal} >
+        <div class="">
+            <p class="pt-5 font-bold text-xl">OK</p>
+        </div> 
+    </button>
   </div>
 </Modal>
 <Nav />
