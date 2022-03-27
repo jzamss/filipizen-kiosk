@@ -1,23 +1,19 @@
 <script>
 	import Header from '$lib/header.svelte';
-	import Keyboard from '$lib/keyboard/keyboard.svelte';
 	import Input from '$lib/ui/input.svelte';
 	import Nav from '$lib/nav.svelte';
 	import Title from '$lib/title.svelte';
 
-	let registerKeyListener = null;
-	let handleKey = null;
-	let entity = { name: '' };
 </script>
 
 <Title module="Initial Information" title="Real Property Tax Billing"/>
  
 <div class='px-32'>
 	<Input 
-		bind:value={entity.name} 
-		name="name" {registerKeyListener} 
+		name="name"
 		placeholder="Enter TD Number" 
-		class="text-5xl bg-white-200 font-bold uppercase" />
+		class="text-5xl bg-white-200 font-bold uppercase" 
+	/>
 </div>
 
 
@@ -32,12 +28,4 @@
 
 
 <footer class="mb-96 mt-20">
-	<slot name="keyboard">
-		<Keyboard
-			bind:registerKeyListener
-			bind:handleKey
-			on:keydown={(event) => (entity = handleKey(entity, event))}
-			on:return={() => console.log('return pressed')}
-		/>
-	</slot>
 </footer>

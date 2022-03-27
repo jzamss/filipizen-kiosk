@@ -1,14 +1,10 @@
 <script>
 	import Input from '$lib/ui/input.svelte';
 	import Nav from '$lib/nav.svelte';
-	import Keyboard from '$lib/keyboard/keyboard.svelte';
 	import Title from '$lib/title.svelte';
 	import Label from '$lib/ui/label.svelte';
 	import Onecolumn from '$lib/ui/one-column.svelte';
 
-	let registerKeyListener = null;
-	let handleKey = null;
-	let entity = { name: '', address: '' };
 </script>
 
 <Title module="Confirm Transaction" />
@@ -17,8 +13,7 @@
 	<Onecolumn>
 		<Label caption="Paid By Name *" class="text-3xl text-gray-700" />
 		<Input	 
-			bind:value={entity.name} 
-			name="name" {registerKeyListener} 
+			name="name"
 			placeholder="Enter Name" 
 			class="text-5xl border-2 p-2 bg-white text-black-700 border-black font-bold uppercase"
 		/>
@@ -26,9 +21,7 @@
 	<Onecolumn>
 		<Label caption="Paid By Address*" class="text-3xl text-gray-700" />
 		<Input
-			bind:value={entity.address}
 			name="address"
-			{registerKeyListener}
 			placeholder="Enter Address"
 			class="text-5xl border-2 p-2 bg-white text-black-700 border-black font-bold uppercase"
 		/>
@@ -55,12 +48,5 @@
 <Nav />
 
 <footer class="mb-96 mt-20">
-	<slot name="keyboard">
-		<Keyboard
-			bind:registerKeyListener
-			bind:handleKey
-			on:keydown={(event) => (entity = handleKey(entity, event))}
-			on:return={() => console.log('return pressed')}
-		/>
-	</slot>
+
 </footer>
