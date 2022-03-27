@@ -10,15 +10,12 @@
 	};
 
 	let options = [
-		{ title: 'Pay', href: '/bpls/pay' },
-		{ title: 'Apply New', href: '' },
-		{ title: 'Renewal', href: '' },
-		{ title: 'Add Line', href: '' }
+		{ title: 'Pay', href: '/rpt/pay' }
 	];
 </script>
 
 
-<Title module="Select Transaction" title="Business Permit" />
+<Title module="Select Transaction" title="Real Property Tax Billing" />
 
 <main class="mb-auto">
 	<div class="grid grid-cols-2 grid-rows-2 m-20">

@@ -40,7 +40,6 @@
 		width: 600px;
 		transform: translate(-50%, -50%);
 		background: #fff;
-		filter: drop-shadow(0 0 20px #333);
 	}
 	#modal h2 {
 		border-top: 2px solid black;

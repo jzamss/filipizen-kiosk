@@ -3,6 +3,8 @@
 	export let value = '';
 	export let placeholder = '';
 	export let registerKeyListener;
+	let clazz = '';
+	export {clazz as class}
 
 	let active = false;
 
@@ -25,7 +27,7 @@
 		on:focus={activate}
 		on:blur={deactivate}
 		{placeholder}
-		class="text-2xl shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+		class="text-2xl shadow appearance-none border-2 border-black w-full py-2 px-3 focus:outline-none focus:shadow-outline {clazz}"
 		/>
 	</slot>
 </div>

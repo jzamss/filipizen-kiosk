@@ -19,6 +19,12 @@
 	});
 </script>
 
+<style>
+	@media print {
+         button{display: none;}
+    }
+</style>
+
 <div class="h-20 bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700">
 	<h1 class="text-5xl font-bold text-white text-center pt-3 pb-3">Queue / Treasury</h1>
 </div>
@@ -54,7 +60,7 @@
 			<button
 				alt="Queueing System"
 				class="ml-5 bg-white h-20 pl-20 text-center w-64 rounded-lg shadow-xl pt-1 border-slate-400 flex border"
-				on:click={() => (isOpenModal = false)}
+				on:click={() => window.print()}
 			>
 				<div class="">
 					<p class="pt-5 font-bold text-xl">Print</p>
