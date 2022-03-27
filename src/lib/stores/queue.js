@@ -1,44 +1,19 @@
-import { writable } from 'svelte/store';
-
-export const fetchGroups = async () => {
-	const res = await fetch('/api/queue/groups');
-	const data = await res.json();
-	if (res.ok) {
-		return data.groups;
-	} else {
-		throw new Error(data.message);
-	}
-};
+import { writable, get } from 'svelte/store';
 
 function createStore() {
 	const store = writable({
 		groups: [],
-		group: {},
+		group: { sections: [] },
 		section: {},
 		error: null
 	});
 
-	const { subscribe, update } = store;
+	const { subscribe, update, set } = store;
 
 	return {
-		subscribe: subscribe,
-
-		setGroups: (groups) => update((draft) => ({ ...draft, groups })),
-
-		setGroup: async (groupid) => {
-			if (groupid) {
-				update((draft) => {
-					const group = draft.groups.find(
-						(group) => group.objid.toLowerCase() === groupid.toLowerCase()
-					);
-					return { ...draft, group };
-				});
-			}
-		},
-
-		setSection: (section) => update((draft) => ({ ...draft, section })),
-
-		setError: (error) => update((draft) => ({ ...draft, error }))
+		subscribe,
+		update,
+		set
 	};
 }
 
@@ -48,11 +23,32 @@ store.fetchGroups = async () => {
 	const res = await fetch('/api/queue/groups');
 	const data = await res.json();
 	if (res.ok) {
-		store.setGroups(data.groups);
+		store.update((draft) => ({ ...draft, groups: data.groups }));
+		return data.groups;
 	} else {
-		store.setError(data.message);
+		store.update((draft) => ({ ...draft, error: data.message }));
+		return data.message;
 	}
 };
+
+store.setGroups = (groups) => store.update((draft) => ({ ...draft, groups }));
+
+store.setGroup = async (groupid) => {
+	if (groupid) {
+		let groups = get(store).groups;
+		if (!groups || groups.length === 0) {
+			groups = await store.fetchGroups();
+		}
+		store.update((draft) => {
+			const group = groups.find((group) => group.objid.toLowerCase() === groupid.toLowerCase());
+			return { ...draft, groups, group };
+		});
+	}
+};
+
+store.setSection = (section) => store.update((draft) => ({ ...draft, section }));
+
+store.setError = (error) => store.update((draft) => ({ ...draft, error }));
 
 store.generateNextTicket = async (section) => {
 	const res = await fetch('/api/queue/ticket', {

@@ -1,10 +1,13 @@
 <script>
+	import { onMount } from 'svelte';
 	import queue from '$lib/stores/queue.js';
 	import Title from '$lib/title.svelte';
 	import Nav from '$lib/nav.svelte';
 	import QueueButton from '$lib/queue/QueueButton.svelte';
 
-	queue.fetchGroups();
+	onMount(() => {
+		queue.fetchGroups();
+	});
 </script>
 
 <div class="h-20 bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700">

@@ -1,4 +1,5 @@
 <script>
+	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
 	import queue from '$lib/stores/queue.js';
 	import Title from '$lib/title.svelte';
@@ -6,14 +7,16 @@
 	import QueueButton from '$lib/queue/QueueButton.svelte';
 	import Modal from '$lib/ui/modal.svelte';
 
-	const groupid = $page.params.groupid;
-	queue.setGroup(groupid);
-
 	const generateTicket = (section) => {
 		queue.generateNextTicket(section);
 	};
 
 	$: isOpenModal = $queue.section.ticket ? true : false;
+
+	onMount(() => {
+		const groupid = $page.params.groupid;
+		queue.setGroup(groupid);
+	});
 </script>
 
 <div class="h-20 bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700">
