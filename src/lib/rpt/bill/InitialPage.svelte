@@ -22,7 +22,7 @@
 
 
 <br />
-<a href="rptbill/billinfo" alt="menu">
+<a href="/rpt/pay/app" alt="menu">
 	<div class="m-auto h-20 text-center bg-white bg-opacity-25 w-1/4 rounded-lg shadow-xl pt-1 border-slate-400 flex border">
 		<img src="/static/icons/back.png" alt="menu" class="h-12 pr-20  mt-3 rotate-180"/>
 		<p class="pt-5 font-bold text-xl">Next</p>

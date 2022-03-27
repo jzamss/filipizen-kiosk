@@ -1,12 +1,16 @@
 <script>
-	import Input from '$lib/ui/input.svelte';
-	import Nav from '$lib/nav.svelte';
-	import Title from '$lib/title.svelte';
-  import Modal from '$lib/ui/modal.svelte';
-  import Label from '$lib/ui/label.svelte';
-  import Dropdown from '$lib/ui/drop-down.svelte'
-  import Onecolumn from '$lib/ui/one-column.svelte'
-  import Twocolumn from '$lib/ui/two-column.svelte'
+    import { page } from '$app/stores';
+    import { writable } from 'svelte/store';
+    import Input from '$lib/ui/input.svelte';
+    import Nav from '$lib/nav.svelte';
+    import Title from '$lib/title.svelte';
+    import Modal from '$lib/ui/modal.svelte';
+    import Label from '$lib/ui/label.svelte';
+    import Dropdown from '$lib/ui/drop-down.svelte';
+    import Onecolumn from '$lib/ui/one-column.svelte';
+    import Twocolumn from '$lib/ui/two-column.svelte';
+
+    $: console.log('page', $page);
 
   let options = [
 		{ id: '1', value: '2022' },
