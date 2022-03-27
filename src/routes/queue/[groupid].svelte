@@ -22,13 +22,11 @@
 <style>
 	@media print {
          button{display: none;}
+		 #model{top: 28% !important;left: 20% !important;}
     }
 </style>
 
-<div class="h-20 bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700">
-	<h1 class="text-5xl font-bold text-white text-center pt-3 pb-3">Queue / Treasury</h1>
-</div>
-<Title module="Select Classification" />
+<Title module="Select Classification" title="Queuing"/>
 <main class="mb-auto">
 	<div class="grid grid-cols-2 grid-rows-2 m-20">
 		{#if $queue.group}
