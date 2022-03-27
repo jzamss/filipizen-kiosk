@@ -15,7 +15,7 @@
 </script>
 
 
-<Title module="Select Transaction" title="RPT" />
+<Title module="Select Transaction" title="Real Property Tax Billing" />
 
 <main class="mb-auto">
 	<div class="grid grid-cols-2 grid-rows-2 m-20">

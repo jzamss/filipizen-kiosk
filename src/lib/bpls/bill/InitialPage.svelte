@@ -16,9 +16,13 @@
 
 <Title module="Initial Information" title='Business Billing'/>
 
-<div class='m-auto w-10/12'>
-	<Input bind:value={entity.name} name="name" {registerKeyListener} placeholder="Enter BIN or Application Number" >
-	</Input>
+
+<div class='px-32'>
+	<Input 
+		bind:value={entity.name} 
+		name="name" {registerKeyListener} 
+		placeholder="Enter BIN or App No" 
+		class="text-5xl bg-gray-200 font-bold uppercase" />
 </div>
 
 

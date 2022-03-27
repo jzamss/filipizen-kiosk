@@ -13,31 +13,37 @@
 
 <Title module="Confirm Transaction" />
 
-<form class="m-auto w-full max-w-lg">
+<div class="px-32">
 	<Onecolumn>
-		<Label caption="Paid By Name *" />
-		<Input bind:value={entity.name} name="name" {registerKeyListener} placeholder="Enter Name" />
+		<Label caption="Paid By Name *" class="text-3xl text-gray-700" />
+		<Input	 
+			bind:value={entity.name} 
+			name="name" {registerKeyListener} 
+			placeholder="Enter Name" 
+			class="text-5xl border-2 p-2 text-black-700 border-black font-bold uppercase"
+		/>
 	</Onecolumn>
 	<Onecolumn>
-		<Label caption="Paid By Address*" />
+		<Label caption="Paid By Address*" class="text-3xl text-gray-700" />
 		<Input
 			bind:value={entity.address}
 			name="address"
 			{registerKeyListener}
 			placeholder="Enter Address"
+			class="text-5xl border-2 p-2 text-black-700 border-black font-bold uppercase"
 		/>
 	</Onecolumn>
 	<br />
 	<Onecolumn>
-		<Label caption="Payment Details" />
-		<Input value="2,200.04" class="text-5xl" />
+		<Label caption="Amount" class="text-3xl text-gray-700" />
+		<Label caption="2,200.04" class=" text-8xl border-2 p-2 text-right text-black-700" />
 	</Onecolumn>
-</form>
+</div>
 
 <br />
 <div class="inline-flex m-auto">
 	<a
-		href="/order"
+		href="/rpt/pay/order"
 		alt="menu"
 		class="m-auto h-20 text-center bg-white bg-opacity-25 w-64  rounded-lg shadow-xl pt-1 border-slate-400 flex border"
 	>

@@ -12,9 +12,9 @@
 	</thead>
 	<tbody>
 		{#each Object.values(tableData) as row}
-			<tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+			<tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 text-black">
 				{#each Object.values(row) as cell}
-					<td class="w-4 p-4 text-right">{cell}</td>
+					<td class="w-4 p-4 text-right text-2xl">{cell}</td>
 				{/each}
 			</tr>
 		{/each}

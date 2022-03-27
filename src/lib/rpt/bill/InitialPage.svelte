@@ -10,14 +10,14 @@
 	let entity = { name: '' };
 </script>
 
-<div class="h-20 bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700">
-    <h1 class="text-5xl font-bold text-white text-center pt-3 pb-3">Real Property Tax Billing </h1>
-</div>
-<Title />
-
-<div class='m-auto w-10/12'>
-	<Input bind:value={entity.name} name="name" {registerKeyListener} placeholder="Enter TD Number" >
-	</Input>
+<Title module="Initial Information" title="Real Property Tax Billing"/>
+ 
+<div class='px-32'>
+	<Input 
+		bind:value={entity.name} 
+		name="name" {registerKeyListener} 
+		placeholder="Enter TD Number" 
+		class="text-5xl bg-gray-200 font-bold uppercase" />
 </div>
 
 

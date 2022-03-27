@@ -6,7 +6,6 @@
     import Title from '$lib/title.svelte';
     import Label from '$lib/ui/label.svelte';
     import Onecolumn from '$lib/ui/one-column.svelte'
-    import Modal from '$lib/ui/modal.svelte';
     import Table from '$lib/ui/table.svelte';
     import Dropdown from '$lib/ui/drop-down.svelte';
 
@@ -26,71 +25,39 @@
     ])
 
     let quarters = [
-		{ id: '1', qtr: '1' },
-		{ id: '2', qtr: '2' },
-		{ id: '3', qtr: '3'},
-    { id: '4', qtr: '4'}
+		{ id: '1', qtr: '1st Quarter' },
+		{ id: '2', qtr: '2nd Quarter' },
+		{ id: '3', qtr: '3rd Quarter'},
+    { id: '4', qtr: '4th Quarter'}
 	];
 
     let selected_qtr = '1';
-
-    let isOpenModal = false;
-
-    function openModal() {
-    isOpenModal = true;
-    }
-
-    function closeModal() {
-    isOpenModal = false;
-    }
 
 </script>
 
 
 <Title module="Billing Information" title="Business Billing"/>
-
- 
-<div class="inline-flex m-auto">
-    <button alt="Queueing System" class="h-20 text-center bg-white bg-opacity-25 w-64 rounded-lg shadow-xl border-slate-400 flex border" on:click={openModal}>
-        <p class="pt-5 pl-20 font-bold text-xl">Pay Option</p>
-    </button>
-</div>
-<div class="w-10/12 m-auto my-20">
+<div class="px-32">
+    <Dropdown name="QUARTER TO BILL">
+        <select  bind:value={selected_qtr} class="border-black block font-bold uppercase appearance-none text-5xl w-full border-2 border-black-700 text-black-700 py-3 px-4 pr-8 rounded focus:outline-none focus:bg-white focus:border-gray-500">
+        {#each quarters as quarter}
+            <option value={quarter.id}>
+            {quarter.qtr}
+            </option>
+        {/each}
+        </select>
+    </Dropdown>
+    <br />
     <Table tableData={$colors}/>
 </div>
-
+<br />
 <div class="inline-flex m-auto">
-  <a href="/bplsbill/pay/transaction" alt="menu" class="m-auto h-20 text-center bg-white bg-opacity-25 w-64  rounded-lg shadow-xl pt-1 border-slate-400 flex border">
+  <a href="/bpls/pay/confirm" alt="menu" class="m-auto h-20 text-center bg-white bg-opacity-25 w-64  rounded-lg shadow-xl pt-1 border-slate-400 flex border">
       <img src="/static/icons/back.png" alt="menu" class="h-12 pr-5 mt-3 rotate-180"/>
       <p class="pt-5 font-bold text-xl">Confirm Payment</p>
   </a>
 </div>
 
-<Modal open={isOpenModal} on:cancel={() => isOpenModal=false}>
-    <h1 class="text-center text-4xl pt-5 pb-10 ">Pay Options</h1>
-    <Dropdown name="QUARTER TO BILL">
-      <select  bind:value={selected_qtr} class="block appearance-none text-3xl w-full bg-gray-200 border-2 border-gray-700 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-        {#each quarters as quarter}
-          <option value={quarter.id}>
-            {quarter.qtr}
-          </option>
-        {/each}
-      </select>
-    </Dropdown>
-
-    <div class="absolute inset-x-0 bottom-10 flex text-center m-auto">
-        <button alt="Queueing System" class="ml-8 bg-gray-400 h-20 pl-20 text-center w-64 rounded-lg shadow-xl pt-1 border-slate-400 flex border" on:click={closeModal} >
-            <div class="">
-                <p class="pt-5 font-bold text-xl">Cancel</p>
-            </div> 
-        </button>
-        <button alt="Queueing System" class="ml-5 bg-white h-20 pl-20 text-center w-64 rounded-lg shadow-xl pt-1 border-slate-400 flex border" on:click={closeModal} >
-            <div class="">
-                <p class="pt-5 font-bold text-xl">OK</p>
-            </div> 
-        </button>
-    </div>
-</Modal>
 
 
 <Nav />
