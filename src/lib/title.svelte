@@ -1,5 +1,5 @@
 <script>
-	export let module = 'Select Transaction';
+	export let module = '';
 	export let title ='';
 	let dt = 'March 7, 2022';
 	let time = '1:40 PM';

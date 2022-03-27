@@ -12,7 +12,7 @@
 </script>
 
 
-
+<Title />
 <div class="flex flex-col h-screen justify-between">
 	<main>
 		<div class="grid grid-cols-3 grid-rows-3 m-20">

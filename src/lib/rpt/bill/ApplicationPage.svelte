@@ -16,19 +16,19 @@
 <div class="px-32">
   <Onecolumn>
     <Label caption='Bill No.' class="text-3xl text-gray-700"></Label>
-    <Label caption='56001:00210165090' class="text-5xl border-2 border-black p-2 text-black-700"></Label>
+    <Label caption='56001:00210165090' class="text-5xl bg-white border-2 border-black p-2 text-black-700"></Label>
   </Onecolumn>
   <Onecolumn>
     <Label caption='Bill Date' class="text-3xl text-gray-700"></Label>
-    <Label caption='2021-10-15 15:24:02' class="text-5xl border-2 p-2 border-black text-black-700"></Label>
+    <Label caption='2021-10-15 15:24:02' class="text-5xl bg-white border-2 p-2 border-black text-black-700"></Label>
   </Onecolumn>
   <Onecolumn>
     <Label caption='TD No.' class="text-3xl text-gray-700"></Label>
-    <Label caption='F-000023' class="text-5xl border-2 p-2 text-black-700 border-black"></Label>
+    <Label caption='F-000023' class="text-5xl bg-white border-2 p-2 text-black-700 border-black"></Label>
   </Onecolumn>
   <Onecolumn>
     <Label caption='PIN' class="text-3xl text-gray-700"></Label>
-    <Label caption='025-04-036B002' class="text-5xl border-2 p-2 text-black-700 border-black"></Label>
+    <Label caption='025-04-036B002' class="text-5xl bg-white border-2 p-2 text-black-700 border-black"></Label>
   </Onecolumn>
 </div>
 

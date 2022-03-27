@@ -22,7 +22,7 @@
 		bind:value={entity.name} 
 		name="name" {registerKeyListener} 
 		placeholder="Enter BIN or App No" 
-		class="text-5xl bg-gray-200 font-bold uppercase" />
+		class="text-5xl bg-white-200 font-bold uppercase" />
 </div>
 
 

@@ -20,7 +20,7 @@
 			bind:value={entity.name} 
 			name="name" {registerKeyListener} 
 			placeholder="Enter Name" 
-			class="text-5xl border-2 p-2 text-black-700 border-black font-bold uppercase"
+			class="text-5xl border-2 p-2 bg-white text-black-700 border-black font-bold uppercase"
 		/>
 	</Onecolumn>
 	<Onecolumn>
@@ -30,7 +30,7 @@
 			name="address"
 			{registerKeyListener}
 			placeholder="Enter Address"
-			class="text-5xl border-2 p-2 text-black-700 border-black font-bold uppercase"
+			class="text-5xl border-2 p-2 bg-white text-black-700 border-black font-bold uppercase"
 		/>
 	</Onecolumn>
 	<br />

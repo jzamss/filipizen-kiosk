@@ -19,15 +19,15 @@
 <div class="px-32">
   <Onecolumn>
     <Label caption='Agency' class="text-3xl text-gray-700"></Label>
-    <Label caption='General Santos' class="text-5xl border-2 p-2 text-black-700 border-black"></Label>
+    <Label caption='General Santos' class="text-5xl bg-white border-2 p-2 text-black-700 border-black"></Label>
   </Onecolumn>
   <Onecolumn>
     <Label caption='Paid By Address' class="text-3xl text-gray-700"></Label>
-    <Label caption='Tampakan' class="text-5xl border-2 p-2 text-black-700 border-black"></Label>
+    <Label caption='Tampakan' class="text-5xl bg-white border-2 p-2 text-black-700 border-black"></Label>
   </Onecolumn>
   <Onecolumn>
     <Label caption='Paid By' class="text-3xl text-gray-700"></Label>
-    <Label caption='Pedro' class="text-5xl border-2 p-2 text-black-700 border-black"></Label>
+    <Label caption='Pedro' class="text-5xl bg-white border-2 p-2 text-black-700 border-black"></Label>
   </Onecolumn>
   <Onecolumn>
     <Label caption='Amount' class="text-3xl text-gray-700"> </Label> 
