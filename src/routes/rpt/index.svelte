@@ -25,3 +25,5 @@
 	</div>
 </main>
 <Nav />
+<footer class="mb-20  mt-20">
+</footer>

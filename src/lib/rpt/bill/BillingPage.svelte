@@ -33,7 +33,7 @@
 <Title module="Billing Information" title="Real Property Tax Billing" />
 <div class="px-32">
     <Dropdown name="YEAR BILL">
-        <select  bind:value={selected_id} class="border-black block font-bold appearance-none text-5xl w-full border-2 border-black-700 text-black-700 py-3 px-4 pr-8 rounded focus:outline-none focus:bg-white focus:border-gray-500">
+        <select  bind:value={selected_id} class="border-black block font-bold appearance-none text-3xl w-full border-2 border-black-700 text-black-700 py-3 px-4 pr-8 rounded focus:outline-none focus:bg-white focus:border-gray-500">
         {#each options as option}
             <option value={option.id}>
             {option.value}
@@ -42,7 +42,7 @@
         </select>
     </Dropdown>
     <Dropdown name="QUARTER TO BILL">
-        <select  bind:value={selected_qtr} class="border-black block font-bold uppercase appearance-none text-5xl w-full border-2 border-black-700 text-black-700 py-3 px-4 pr-8 rounded focus:outline-none focus:bg-white focus:border-gray-500">
+        <select  bind:value={selected_qtr} class="border-black block font-bold uppercase appearance-none text-3xl w-full border-2 border-black-700 text-black-700 py-3 px-4 pr-8 rounded focus:outline-none focus:bg-white focus:border-gray-500">
         {#each quarters as quarter}
             <option value={quarter.id}>
             {quarter.qtr}
@@ -51,8 +51,8 @@
         </select>
     </Dropdown>
     <Onecolumn>
-      <Label caption='Amount' class="text-3xl text-gray-700"> </Label> 
-      <Label caption='2,571.35' class=" text-8xl border-2 p-2 text-right text-black-700"></Label>
+      <Label caption='Amount' class="text-2xl text-gray-700"> </Label> 
+      <Label caption='2,571.35' class=" text-5xl border-2 p-2 text-right text-black-700"></Label>
     </Onecolumn>
 </div>
 
@@ -60,7 +60,7 @@
 <div class="inline-flex m-auto">
   <a href="/rpt/pay/confirm" alt="menu" class="m-auto h-20 text-center bg-white bg-opacity-25 w-64  rounded-lg shadow-xl pt-1 border-slate-400 flex border">
       <img src="/static/icons/back.png" alt="menu" class="h-12 pr-5 mt-3 rotate-180"/>
-      <p class="pt-5 font-bold text-xl">Confirm Payment</p>
+      <p class="pt-5 font-bold text-xl">Confirm</p>
   </a>
 </div>
 
@@ -69,6 +69,6 @@
 
 
 
-<footer class="mb-96 mt-20">
+<footer class="mb-20 mt-20">
 
 </footer>

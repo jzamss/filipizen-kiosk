@@ -70,4 +70,4 @@
 {/if}
 
 <Nav />
-<footer class="mb-96 mt-20" />
+<footer class="mb-20 mt-20" />
