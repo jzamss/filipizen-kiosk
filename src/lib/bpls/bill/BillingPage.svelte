@@ -54,7 +54,7 @@
 <div class="inline-flex m-auto">
   <a href="/bpls/pay/confirm" alt="menu" class="m-auto h-20 text-center bg-white bg-opacity-25 w-64  rounded-lg shadow-xl pt-1 border-slate-400 flex border">
       <img src="/static/icons/back.png" alt="menu" class="h-12 pr-5 mt-3 rotate-180"/>
-      <p class="pt-5 font-bold text-xl">Confirm Payment</p>
+      <p class="pt-5 font-bold text-xl">Confirm</p>
   </a>
 </div>
 
@@ -64,7 +64,7 @@
 
 
 
-<footer class="mb-96 mt-20">
+<footer class="mb-20 mt-20">
 
 </footer>
 

@@ -4,7 +4,11 @@
 	import Nav from '$lib/nav.svelte';
 	import Title from '$lib/title.svelte';
 
+	let hideScroll = true;
+
 </script>
+
+
 
 <Title module="Initial Information" title="Real Property Tax Billing"/>
  
@@ -27,5 +31,5 @@
 <Nav />
 
 
-<footer class="mb-96 mt-20">
+<footer class="mb-20  mt-20">
 </footer>
