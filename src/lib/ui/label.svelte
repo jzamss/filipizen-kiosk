@@ -1,9 +1,11 @@
 <script>
 	export let caption = '';
-  let clazz = '';
-	export {clazz as class}
+	export let value = '';
+	let clazz = '';
+	export { clazz as class };
 </script>
 
-<label class="block uppercase tracking-wide  font-bold mb-2 {clazz}">
-  {caption}
-</label>
+<div class="grid grid-cols-2 {clazz}">
+	<p>{caption}</p>
+	<p>{value}</p>
+</div>

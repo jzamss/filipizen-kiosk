@@ -1,13 +1,11 @@
 <script>
 	export let module = '';
-	export let title ='';
-	
-	
+	export let title = '';
 </script>
 
 <div class="h-20 ">
-    <h1 class="text-4xl font-bold  text-center pt-3 pb-3 uppercase">{title}</h1>
+	<h1 class="text-4xl font-bold  text-center pt-3 pb-3 uppercase">{module}</h1>
 </div>
 <div class="mt-20 mb-20">
-	<h2 class="text-3xl font-bold px-20 py-1 text-center uppercase text-gray-700">{module}</h2>
+	<h2 class="text-3xl font-bold px-20 py-1 text-center uppercase text-gray-700">{title}</h2>
 </div>

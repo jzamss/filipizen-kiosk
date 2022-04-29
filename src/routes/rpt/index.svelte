@@ -1,22 +1,11 @@
 <script>
-	import { page } from '$app/stores';
 	import Title from '$lib/title.svelte';
-	import Nav from '$lib/nav.svelte';
 	import Menu from '$lib/Components/Menu.svelte';
 
-	const clickHandler = (selectedGroup) => {
-		group = selectedGroup;
-		isOpenModal = true;
-	};
-
-	let options = [
-		{ title: 'Pay', href: '/rpt/pay' }
-	];
+	let options = [{ title: 'Billing', href: '/rpt/bill' }];
 </script>
 
-
-<Title module="Select Transaction" title="Real Property Tax Billing" />
-
+<Title module="Real Property Tax" title="Select a Transaction" />
 <main class="mb-auto">
 	<div class="grid grid-cols-2 grid-rows-2 m-20">
 		{#each options as option}
@@ -24,6 +13,3 @@
 		{/each}
 	</div>
 </main>
-<Nav />
-<footer class="mb-20  mt-20">
-</footer>

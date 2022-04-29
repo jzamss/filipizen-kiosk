@@ -1,16 +1,38 @@
 <script>
+	export let value;
 	export let placeholder = '';
 	let clazz = '';
-	export {clazz as class}
+	export { clazz as class };
 
+	let inputRef;
+
+	export const focus = () => {
+		if (inputRef) inputRef.focus();
+	};
 </script>
 
-<div class="Input">
-	<slot>
-		<input
-		type="text"
-		{placeholder}
-		class="text-2xl shadow appearance-none border-2 border-black w-full py-2 px-3 focus:outline-none focus:shadow-outline {clazz}"
-		/>
-	</slot>
-</div>
+<input
+	bind:this={inputRef}
+	bind:value
+	type="text"
+	{placeholder}
+	class="
+		text-5xl 
+		text-center
+		font-bold
+		uppercase
+		mb-4
+		py-2 
+		px-3 
+		w-full 
+		shadow 
+		appearance-none 
+		border-2 
+		rounded 
+		border-gray-600 
+		focus:outline-none 
+		focus:shadow-outline 
+		bg-white-200
+		{clazz}
+	"
+/>

@@ -1,15 +1,52 @@
 <script>
 	export let caption;
+	export let href = null;
+	export let alt = '';
+	export let leftIcon = null;
+	export let rightIcon = null;
+	let clz = '';
+	export { clz as class };
 
-	function openModal() {
-    isOpenModal = true;
-  }
-
-  function closeModal() {
-    isOpenModal = false;
-  }
+	const defualtClass =
+		'font-bold  text-xl  py-4  px-14 bg-white  bg-opacity-25  rounded-lg  shadow-xl  border-slate-400  border flex justify-center items-center';
 </script>
 
-<button alt="Queueing System" class="m-auto h-20 text-center bg-white bg-opacity-25 w-64 rounded-lg shadow-xl pt-1 mr-10 border-slate-400 flex border">
-	<p class="pt-5 pl-20 font-bold text-xl">{caption}</p>
-</button>
+{#if href}
+	<a
+		{href}
+		{alt}
+		class="
+			{defualtClass}
+			{clz}
+		"
+	>
+		{#if leftIcon}
+			<img src={leftIcon} alt="menu" class="h-8 mr-2" />
+		{/if}
+		{#if caption}
+			{caption}
+		{/if}
+		{#if rightIcon}
+			<img src={rightIcon} alt="menu" class="rotate-180 h-8 ml-2" />
+		{/if}
+	</a>
+{:else}
+	<button
+		on:click
+		{alt}
+		class="
+		{defualtClass}
+		{clz}
+	"
+	>
+		{#if leftIcon}
+			<img src={leftIcon} alt="menu" class="h-8 mr-2" />
+		{/if}
+		{#if caption}
+			{caption}
+		{/if}
+		{#if rightIcon}
+			<img src={rightIcon} alt="menu" class="rotate-180 h-8 ml-2" />
+		{/if}
+	</button>
+{/if}
