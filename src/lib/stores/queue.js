@@ -20,14 +20,18 @@ function createStore() {
 const store = createStore();
 
 store.fetchGroups = async () => {
-	const res = await fetch('/api/queue/groups');
-	const data = await res.json();
-	if (res.ok) {
-		store.update((draft) => ({ ...draft, groups: data.groups }));
-		return data.groups;
-	} else {
-		store.update((draft) => ({ ...draft, error: data.message }));
-		return data.message;
+	try {
+		const res = await fetch('/api/queue/groups');
+		const data = await res.json();
+		if (res.ok) {
+			store.update((draft) => ({ ...draft, groups: data.groups }));
+			return data.groups;
+		} else {
+			store.update((draft) => ({ ...draft, error: data.message }));
+			return data.message;
+		}
+	} catch (error) {
+		store.update((_) => ({ error: 'Queue server error encountered. Please try again.' }));
 	}
 };
 

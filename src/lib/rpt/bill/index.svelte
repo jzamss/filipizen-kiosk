@@ -18,7 +18,7 @@
 
 	const getBilling = () => {
 		bill.getBilling($bill.entity.tdno);
-		if (error && inputRef) inputRef.focus();
+		inputRef.focus();
 	};
 
 	const printBill = () => {

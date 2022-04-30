@@ -1,8 +1,8 @@
 <script>
 	import { onMount } from 'svelte';
+	import { fly } from 'svelte/transition';
 	import queue from '$lib/stores/queue.js';
 	import Title from '$lib/title.svelte';
-	import Nav from '$lib/nav.svelte';
 	import QueueButton from '$lib/queue/QueueButton.svelte';
 
 	onMount(() => {
@@ -19,11 +19,11 @@
 {:else}
 	<main class="mb-auto">
 		<div class="grid grid-cols-2 grid-rows-2 m-20">
-			{#each $queue.groups as group (group.objid)}
-				<QueueButton href="/queue/{group.objid.toLowerCase()}" title={group.title} />
+			{#each $queue.groups as group, idx (group.objid)}
+				<div in:fly={{ x: -400, duration: 200 + 200 * idx }}>
+					<QueueButton href="/queue/{group.objid.toLowerCase()}" title={group.title} />
+				</div>
 			{/each}
 		</div>
 	</main>
-	<Nav />
-	<footer class="mb-96 mt-20" />
 {/if}
