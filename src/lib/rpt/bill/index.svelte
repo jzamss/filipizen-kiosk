@@ -45,8 +45,8 @@
 			<Error {error} />
 		{/if}
 		<ActionBar>
-			<Button href="/rpt" caption="Cancel" />
-			<Button on:click={getBilling} caption="Next" rightIcon="/static/icons/back.png" />
+			<a href="/rpt" alt="next icon link"><img src="/static/icons/cancel.svg" alt="next icon" class="w-60" /></a>
+			<a on:click={getBilling} alt="next icon link"><img src="/static/icons/next.svg" alt="next icon" class="w-60" /></a>
 		</ActionBar>
 	{/if}
 
