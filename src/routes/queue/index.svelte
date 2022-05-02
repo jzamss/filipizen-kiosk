@@ -10,7 +10,7 @@
 	});
 </script>
 
-<Title title="Queuing" />
+<Title title="Queue Ticket" />
 
 {#if $queue.error}
 	<h1 class="text-red-500">{$queue.error}</h1>

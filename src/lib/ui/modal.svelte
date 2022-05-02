@@ -36,7 +36,7 @@
 		z-index: 2;
 		top: 50%;
 		left: 50%;
-		height: 500px;
+		height: 420px;
 		width: 600px;
 		transform: translate(-50%, -50%);
 		background: #fff;

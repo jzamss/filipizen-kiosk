@@ -3,7 +3,7 @@
 	export let title = '';
 </script>
 
-<div class="h-20 ">
+<div class="h-20 title">
 	<h1 class="text-4xl font-bold  text-center pt-3 pb-3 uppercase">{module}</h1>
 </div>
 <div class="mt-20 mb-20">

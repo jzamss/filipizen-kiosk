@@ -6,5 +6,5 @@
 	<slot />
 </main>
 <footer class="mb-20  mt-20">
-	<a href="/" alt="hone icon link"><img src="/static/icons/home.svg" alt="home icon" class="w-60 m-auto" /></a>
+	<a href="/" alt="hone icon link"><img src="/static/icons/home.svg" alt="home icon" class="w-80 m-auto" /></a>
 </footer>
