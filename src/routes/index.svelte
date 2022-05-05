@@ -16,8 +16,8 @@
 			{#each menus as menu, idx}
 				<div in:fly={{ x: -300, duration: 200 + 200 * idx }}>
 					<a href={menu.link} alt={menu.name}>
-						<div class="h-60 text-center w-11/12">
-							<img src="/static/icons/{menu.icon}.svg" alt={menu.name} class="m-auto" />
+						<div class="h-40 text-center w-11/12">
+							<img src="/static/icons/{menu.icon}.svg" alt={menu.name} class="m-auto w-1/2" />
 							<p class="pt-5 text-2xl font-bold">{menu.name}</p>
 						</div>
 					</a>
