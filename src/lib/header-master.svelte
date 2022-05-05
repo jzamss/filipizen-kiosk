@@ -6,19 +6,13 @@
 	let time = '1:40 PM';
 </script>
 
-<div class="flex flex-row mb-20">
+<div class="flex flex-row mb-20 px-14">
 	<slot name="header-master">
 		<div class="w-3/4">
 			<div>
 				<h2 class="text-7xl font-bold ">{module}</h2>
 				<p class="text-2xl">{tg1}</p>
 				<p class="text-2xl">{tg2}</p>
-			</div>
-			<div class="mt-5">
-				<div class="text-2xl">
-					<p>{dt}</p>
-					<p>{time}</p>
-				</div>
 			</div>
 		</div>
 		<div class="mt-10 w-1/4">

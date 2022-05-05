@@ -5,7 +5,7 @@
 	let options = [{ title: 'Billing', href: '/rpt/bill' }];
 </script>
 
-<Title module="Real Property Tax" title="Select a Transaction" />
+<Title module="Real Property Tax" />
 <main class="mb-auto">
 	<div class="grid grid-cols-2 grid-rows-2 m-20">
 		{#each options as option}

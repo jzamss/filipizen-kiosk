@@ -1,5 +1,6 @@
 <script>
 	import { fly } from 'svelte/transition';
+	import Title from '$lib/title.svelte'
 	let menus = [
 		{ name: 'Queue Ticket', link: '/queue', icon: 'queue' },
 		{ name: 'Business Permit', link: '/bpls', icon: 'bpls' },
@@ -7,7 +8,9 @@
 	];
 </script>
 
-<div class="flex flex-col h-screen justify-between">
+
+<Title module="Menu" />
+<div class="flex flex-col justify-between">
 	<main>
 		<div class="grid grid-cols-3 grid-rows-3 m-20">
 			{#each menus as menu, idx}
