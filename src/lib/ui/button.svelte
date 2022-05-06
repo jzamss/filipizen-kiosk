@@ -46,7 +46,7 @@
 			{caption}
 		{/if}
 		{#if rightIcon}
-			<img src={rightIcon} alt="menu" class="rotate-180 h-8 ml-2" />
+			<img src={rightIcon} alt="menu" class="h-8 ml-2" />
 		{/if}
 	</button>
 {/if}
