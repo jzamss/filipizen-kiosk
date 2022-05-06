@@ -6,24 +6,18 @@
 	let time = '1:40 PM';
 </script>
 
-<div class="flex flex-row mb-20">
+<div class="px-14 flex flex-row mb-20">
 	<slot name="header-master">
-		<div class="w-3/4">
+		<div class="mt-10 w-3/4">
 			<div>
 				<h2 class="text-7xl font-bold ">{module}</h2>
-				<p class="text-2xl">{tg1}</p>
-				<p class="text-2xl">{tg2}</p>
-			</div>
-			<div class="mt-5">
-				<div class="text-2xl">
-					<p>{dt}</p>
-					<p>{time}</p>
-				</div>
+				<p class="text-4xl">{tg1}</p>
+				<p class="text-4xl">{tg2}</p>
 			</div>
 		</div>
 		<div class="mt-10 w-1/4">
 			<a href="/" alt="LGU Logo"
-				><img src="/static/lgu-logo.png" alt="LGU Logo" class=" float-right mr-20" /></a
+				><img src="/static/lgu-logo.png" alt="LGU Logo" class=" float-right" /></a
 			>
 		</div>
 	</slot>

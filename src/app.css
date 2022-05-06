@@ -2,13 +2,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/*body{background-image:url("static/kiosk-bg.jpeg")};*/
-
+/*
+body{
+    background-image:url("static/bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
 .s-IL5CpgFln3Ec {
     margin: 0 auto !important;
 }
+*/
 
+html, body{
+    /*overflow: hidden;*/
+}
 @media print{
     header-master{
         display: none !important;
@@ -44,7 +51,7 @@
     }
     p{
         font-size: 14px !important;
-        width: 150px !important;
-        padding-bottom: 5px !important;
+        width: 180px !important;
+        margin-bottom: 10px !important;
     }
 }

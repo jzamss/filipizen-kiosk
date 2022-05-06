@@ -47,8 +47,8 @@
 	<h1 class="text-red-600 font-bold text-center">{$queue.error}</h1>
 {:else if $queue.section.ticket}
 	<Modal open={isOpenModal} on:cancel={() => (isOpenModal = false)}>
-		<h2 class="text-center text-6xl pt-5 pb-2 text-bold">Queue Ticket</h2>
-		<h2 class="text-center text-2xl pt-2">Your Queue Number</h2>
+		<h2 class="text-center text-4xl pt-5 pb-2 text-bold">QUEUING</h2>
+		<h2 class="text-center text-2xl pt-2">Queue Ticket No.</h2>
 		<h1 class="text-center text-9xl pt-5 pb-5 text-bold mb-5">
 			{$queue.section.ticket.ticketno}
 		</h1>

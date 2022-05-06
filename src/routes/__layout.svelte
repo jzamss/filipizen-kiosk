@@ -2,11 +2,13 @@
 	import '../app.css';
 	import 'svelte';
 	import Header from '$lib/header-master.svelte';
+	import Footer from '$lib/footer-master.svelte';
 </script>
 
-<div class="px-14 mx-auto bg-kiosk-bg">
-	<div class="pt-6 flex flex-col h-screen justify-between">
+<div class="mx-auto bg-kiosk-bg">
+	<div class="flex flex-col justify-between">
 		<Header />
 		<slot />
+		<Footer />
 	</div>
 </div>

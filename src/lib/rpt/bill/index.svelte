@@ -39,14 +39,18 @@
 
 <div class="mx-16">
 	{#if mode === 'init'}
-		<Title module="Real Property Tax Billing" title="Initial Information" />
-		<Input bind:this={inputRef} bind:value={entity.tdno} placeholder="Enter TD Number" />
-		{#if error}
-			<Error {error} />
-		{/if}
+		<Title module="Real Property Tax Billing" />
+		<div class="my-40 mx-20">
+			<Input bind:this={inputRef} bind:value={entity.tdno} placeholder="Enter TD Number"/>
+			<div class="h-20">
+				{#if error}
+					<Error {error} />
+				{/if}
+			</div>
+		</div>
 		<ActionBar>
-			<a href="/rpt" alt="next icon link"><img src="/static/icons/cancel.svg" alt="next icon" class="w-60" /></a>
-			<a on:click={getBilling} alt="next icon link"><img src="/static/icons/next.svg" alt="next icon" class="w-60" /></a>
+			<Button on:click={moveBack} caption="Cancel" />
+			<Button  on:click={getBilling} caption="Next" rightIcon="/static/icons/back.png" />
 		</ActionBar>
 	{/if}
 
@@ -57,7 +61,6 @@
 				<div>
 					<Label caption="TD No." value={entity.ledger.tdno} />
 					<Label caption="Declared Owner" value={entity.ledger.owner.name} />
-
 					<Label caption="PIN" value={entity.ledger.fullpin} />
 					<Label caption="Kind" value={entity.ledger.rputype} />
 					<Label caption="LGU" value={entity.ledger.lguname} />
