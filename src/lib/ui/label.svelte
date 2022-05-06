@@ -5,7 +5,7 @@
 	export { clazz as class };
 </script>
 
-<div class="grid grid-cols-2 {clazz}">
-	<p>{caption}</p>
-	<p>{value}</p>
+<div class="flex {clazz} ">
+	<div class="w-4/12">{caption} </div>:
+	<div class="ml-10">{value}</div>
 </div>

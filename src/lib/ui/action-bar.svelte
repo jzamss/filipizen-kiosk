@@ -3,6 +3,6 @@
 	export { clz as class };
 </script>
 
-<div class="flex justify-between items-center mt-6 {clz}">
+<div class="w-11/12 flex absolute {clz} bottom-96">
 	<slot />
 </div>

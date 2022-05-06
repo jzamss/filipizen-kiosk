@@ -49,44 +49,48 @@
 			</div>
 		</div>
 		<ActionBar>
-			<Button on:click={moveBack} caption="Cancel" />
-			<Button  on:click={getBilling} caption="Next" rightIcon="/static/icons/back.png" />
+			<div class="w-9/12">
+				<Button on:click={moveBack} caption="Cancel" leftIcon="/static/icons/cancel.svg"/>
+			</div>
+			<div>
+				<Button  on:click={getBilling} caption="Next" rightIcon="/static/icons/next.svg"/>
+			</div> 
 		</ActionBar>
 	{/if}
 
 	{#if mode === 'bill'}
 		<Panel>
 			<Subtitle title="Property Information" class="my-4" />
-			<div class="grid grid-cols-2">
-				<div>
-					<Label caption="TD No." value={entity.ledger.tdno} />
-					<Label caption="Declared Owner" value={entity.ledger.owner.name} />
-					<Label caption="PIN" value={entity.ledger.fullpin} />
-					<Label caption="Kind" value={entity.ledger.rputype} />
-					<Label caption="LGU" value={entity.ledger.lguname} />
-					<Label caption="Barangay" value={entity.ledger.barangay} />
-				</div>
-				<div>
-					<Label caption="Title No" value={entity.ledger.titleno} />
-					<Label caption="Lot No." value={entity.ledger.cadastrallotno} />
-					<Label caption="Area (ha)" value={entity.ledger.totalareaha} />
-					<Label caption="Area (sqm)" value={entity.ledger.totalareasqm} />
-					<Label caption="Market Value" value={entity.ledger.totalmv} />
-					<Label caption="Assessed Value" value={entity.ledger.totalav} />
-				</div>
+			<div class="text-2xl">
+				<Label caption="TD No." value={entity.ledger.tdno} />
+				<Label caption="Declared Owner" value={entity.ledger.owner.name} />
+				<Label caption="PIN" value={entity.ledger.fullpin} />
+				<Label caption="Kind" value={entity.ledger.rputype} />
+				<Label caption="LGU" value={entity.ledger.lguname} />
+				<Label caption="Barangay" value={entity.ledger.barangay} />
+				<Label caption="Title No" value={entity.ledger.titleno} />
+				<Label caption="Lot No." value={entity.ledger.cadastrallotno} />
+				<Label caption="Area (ha)" value={entity.ledger.totalareaha} />
+				<Label caption="Area (sqm)" value={entity.ledger.totalareasqm} />
+				<Label caption="Market Value" value={entity.ledger.totalmv} />
+				<Label caption="Assessed Value" value={entity.ledger.totalav} />
 			</div>
-			<Subtitle title="Billing Information" class="my-4" />
-			<Label caption="BILL PERIOD" value={entity.billperiod} />
-			<Label caption="BILL AMOUNT" value={entity.totals.total} />
+			<br />
+			<div class="bg-gray-300 px-5 text-2xl">
+				<Subtitle title="Billing Information" class="mb-4" />
+				<Label caption="BILL PERIOD" value={entity.billperiod} />
+				<Label caption="BILL AMOUNT" value={entity.totals.total} />
+			</div>
+			<br />
 			<p class="mt-5 font-bold">Bill Breakdown</p>
-			<div class="grid grid-cols-2">
-				<div>
+			<div class="flex w-full text-1xl">
+				<div class="w-8/12">
 					<Label caption="Basic" value={entity.totals.basic} />
 					<Label caption="Basic Interest" value={entity.totals.basicint} />
 					<Label caption="Basic Discount" value={entity.totals.basicdisc} />
 					<Label caption="Basic Total" value={entity.totals.basicnet} />
 				</div>
-				<div>
+				<div class="w-8/12">
 					<Label caption="SEF" value={entity.totals.sef} />
 					<Label caption="SEF Interest" value={entity.totals.sefint} />
 					<Label caption="SEF Discount" value={entity.totals.sefdisc} />
@@ -95,8 +99,12 @@
 			</div>
 		</Panel>
 		<ActionBar>
-			<Button on:click={moveBack} caption="Back" />
-			<Button on:click={printBill} caption="Print Bill" rightIcon="/static/icons/back.png" />
+			<div class="w-9/12">
+				<Button on:click={moveBack} caption="Back"  leftIcon="/static/icons/back.svg"/>
+			</div>
+			<div>
+				<Button on:click={printBill} caption="Print" rightIcon="/static/icons/print.svg" class="float-rights" />
+			</div>
 		</ActionBar>
 	{/if}
 </div>
