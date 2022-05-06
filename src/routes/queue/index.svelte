@@ -10,7 +10,11 @@
 	});
 </script>
 
+<<<<<<< HEAD
 <Title module="Queuing" />
+=======
+<Title title="Queuing" />
+>>>>>>> 0bbd362a19a9b9c5596184426c22ead903d29a7c
 
 {#if $queue.error}
 	<h1 class="text-red-500">{$queue.error}</h1>
