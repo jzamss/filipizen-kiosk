@@ -6,10 +6,13 @@
 
 
 <footer class="p-5 bg-gray-200 flex absolute bottom-0 w-full">
-    <div class="w-3/4">
+    <div class="w-2/5">
         <a href="/" alt="LGU Logo">
             <img src="/static/rameses.png" alt="Rameses Systems Inc Logo" class="w-60 pt-3"/>
         </a>
+    </div>
+    <div class="w-2/5">
+        <a href="/" alt="home icon link"><img src="/static/icons/home.svg" alt="home icon" class="w-60 m-auto" /></a>
     </div>
     <div class="m-auto">
         <p class="text-4xl pl-5">{time}</p>
