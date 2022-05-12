@@ -7,12 +7,7 @@
 </script>
 
 {#if href}
-	<Button {href} alt={title} caption="{title}" rightIcon="/static/icons/{title}.svg"/>
+	<Button {href} alt={title} caption="{title}" class="w-1/2 h-20 m-auto inline-block px-6 py-2 border-2 border-blue-600 text-blue-600 font-medium text-1xl leading-tight uppercase rounded"/>
 {:else}
-	<button class="m-auto" on:click>
-		<div>
-			<img src="/static/icons/{title}.svg" alt={title} class="w-40 m-auto" />	
-			<p class="text-2xl font-bold text-center pt-5">{title}</p>
-		</div>
-	</button>
+	<Button caption="{title}" on:click class="w-1/2 h-20 m-auto inline-block px-6 py-2 border-2 border-blue-600 text-blue-600 font-medium text-1xl leading-tight uppercase rounded" />
 {/if}

@@ -55,4 +55,7 @@ html, body{
         width: 180px !important;
         margin-bottom: 10px !important;
     }
+    .time{
+        display:none !important;
+    }
 }

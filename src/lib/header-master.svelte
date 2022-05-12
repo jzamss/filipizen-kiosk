@@ -16,7 +16,7 @@
 			</div>
 		</div>
 		<div class="mt-10 w-1/4">
-			<a href="/rpt" alt="LGU Logo"
+			<a href="/" alt="LGU Logo"
 				><img src="/static/lgu-logo.png" alt="LGU Logo" class=" float-right" /></a
 			>
 		</div>

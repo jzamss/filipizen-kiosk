@@ -38,8 +38,10 @@
 			{/each}
 		{/if}
 	</div>
-
-	<a on:click={backHandler} > <img src="/static/icons/back.svg" alt="back icon" class="w-60 m-auto"/></a>
+	<div class="bottom-96 absolute w-full m-auto">
+		<Button on:click={backHandler} caption="Back" class="m-auto w-1/5 h-20 inline-block px-6 py-2 border-2 border-red-600 text-red-600 font-medium text-1xl leading-tight uppercase rounded"  leftIcon="/static/icons/back.svg"/>
+	</div>
+	
 	
 </main>
 
@@ -53,23 +55,21 @@
 			{$queue.section.ticket.ticketno}
 		</h1>
 
-		<div class="flex text-center m-auto">
-			<a
+		<div class="flex m-auto">
+			<Button
 				alt="Queueing System"
-				class="w-64"
+				caption="Cancel"
+				class="w-64 m-auto"
 				on:click={() => (isOpenModal = false)}
-			>
-				<img src="/static/icons/cancel.svg" />
-			</a>
-			<a
+			/>
+			<Button
 				alt="Queueing System"
-				class="w-64"
+				caption="Print"
+				class="w-64 m-auto"
 				on:click={() => window.print()}
-			>
-				<img src="/static/icons/print.svg" />
-			</a>
+			/>
 		</div>
-		<p class="text-center text-1xl pt-1">Please wait until your number is called</p>
+		<p class="text-center text-1xl pt-4">Please wait until your number is called</p>
 	</Modal>
 {/if}
 
