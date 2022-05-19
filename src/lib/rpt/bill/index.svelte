@@ -9,20 +9,20 @@
 	import Button from '$lib/ui/button.svelte';
 	import Label from '$lib/ui/label.svelte';
 	import Error from '$lib/ui/error.svelte';
+	import ModalPrint from '$lib/ui/modal-print.svelte';
+	import { currencyFormat, numberFormat, isEmpty } from '$lib/helper.js';
 
 	let inputRef = null;
+	let printBill = false;
 
 	$: mode = $bill.mode;
 	$: error = $bill.error;
+	$: processing = $bill.processing;
 	$: entity = $bill.entity;
 
 	const getBilling = () => {
 		bill.getBilling($bill.entity.tdno);
 		inputRef.focus();
-	};
-
-	const printBill = () => {
-		alert('Printing bill');
 	};
 
 	const moveBack = async () => {
@@ -33,7 +33,7 @@
 
 	onMount(() => {
 		bill.init();
-		inputRef.focus();
+		if (inputRef) inputRef.focus();
 	});
 </script>
 
@@ -41,7 +41,12 @@
 	{#if mode === 'init'}
 		<Title module="Real Property Tax Billing" />
 		<div class="my-40 mx-20">
-			<Input bind:this={inputRef} bind:value={entity.tdno} placeholder="Enter TD Number"/>
+			<Input
+				bind:this={inputRef}
+				bind:value={entity.tdno}
+				disabled={processing}
+				placeholder="Enter TD Number"
+			/>
 			<div class="h-20">
 				{#if error}
 					<Error {error} />
@@ -50,11 +55,22 @@
 		</div>
 		<ActionBar>
 			<div class="w-9/12">
-				<Button on:click={moveBack} caption="Cancel" leftIcon="/static/icons/cancel.svg"/>
+				<Button
+					on:click={moveBack}
+					disabled={processing}
+					caption="Cancel"
+					leftIcon="/static/icons/cancel.svg"
+				/>
 			</div>
 			<div>
-				<Button  on:click={getBilling} caption="Next" rightIcon="/static/icons/next.svg"/>
-			</div> 
+				<Button
+					on:click={getBilling}
+					disabled={isEmpty(entity.tdno)}
+					{processing}
+					caption="Next"
+					rightIcon="/static/icons/next.svg"
+				/>
+			</div>
 		</ActionBar>
 	{/if}
 
@@ -66,20 +82,24 @@
 				<Label caption="Declared Owner" value={entity.ledger.owner.name} />
 				<Label caption="PIN" value={entity.ledger.fullpin} />
 				<Label caption="Kind" value={entity.ledger.rputype} />
-				<Label caption="LGU" value={entity.ledger.lguname} />
-				<Label caption="Barangay" value={entity.ledger.barangay} />
+				<Label caption="Location" value="{entity.ledger.barangay}, {entity.ledger.lguname}" />
 				<Label caption="Title No" value={entity.ledger.titleno} />
 				<Label caption="Lot No." value={entity.ledger.cadastrallotno} />
-				<Label caption="Area (ha)" value={entity.ledger.totalareaha} />
-				<Label caption="Area (sqm)" value={entity.ledger.totalareasqm} />
-				<Label caption="Market Value" value={entity.ledger.totalmv} />
-				<Label caption="Assessed Value" value={entity.ledger.totalav} />
+				{#if entity.ledger.totalareaha > 0}
+					{#if entity.ledger.classification === 'AGRICULTURARL'}
+						<Label caption="Area (ha)" value={numberFormat(entity.ledger.totalareaha, 4)} />
+					{:else}
+						<Label caption="Area (sqm)" value={numberFormat(entity.ledger.totalareasqm)} />
+					{/if}
+				{/if}
+				<Label caption="Market Value" value={currencyFormat(entity.ledger.totalmv)} />
+				<Label caption="Assessed Value" value={currencyFormat(entity.ledger.totalav)} />
 			</div>
 			<br />
 			<div class="bg-gray-300 px-5 text-2xl">
 				<Subtitle title="Billing Information" class="mb-4" />
 				<Label caption="BILL PERIOD" value={entity.billperiod} />
-				<Label caption="BILL AMOUNT" value={entity.totals.total} />
+				<Label caption="BILL AMOUNT" value={currencyFormat(entity.totals.total)} />
 			</div>
 			<br />
 			<p class="mt-5 font-bold">Bill Breakdown</p>
@@ -100,11 +120,27 @@
 		</Panel>
 		<ActionBar>
 			<div class="w-9/12">
-				<Button on:click={moveBack} caption="Back"  leftIcon="/static/icons/back.svg"/>
+				<Button on:click={moveBack} caption="Back" leftIcon="/static/icons/back.svg" />
 			</div>
 			<div>
-				<Button on:click={printBill} caption="Print" rightIcon="/static/icons/print.svg" class="float-rights" />
+				<Button
+					on:click={() => (printBill = true)}
+					caption="Pay to Cashier"
+					rightIcon="/static/icons/print.svg"
+					class="float-rights"
+				/>
 			</div>
 		</ActionBar>
+	{/if}
+
+	{#if printBill}
+		<ModalPrint open={printBill} afterPrint={() => (printBill = false)}>
+			<h2 class="text-center text-4xl pt-5 pb-2 text-bold">REAL PROPERTY TAX BILL</h2>
+			<h2 class="text-center text-2xl pt-2">Amount</h2>
+			<h1 class="text-center text-9xl pt-5 pb-5 text-bold mb-5">
+				{currencyFormat(entity.totals.total)}
+			</h1>
+			<p class="text-center text-2xl">{entity.barcode}</p>
+		</ModalPrint>
 	{/if}
 </div>

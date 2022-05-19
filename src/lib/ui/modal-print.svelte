@@ -8,10 +8,10 @@
 
 	afterUpdate(() => {
 		if (open) {
-			window.print();
 			timeoutId = setTimeout(() => {
+				window.print();
 				afterPrint();
-			}, 2000);
+			}, 500);
 		}
 	});
 

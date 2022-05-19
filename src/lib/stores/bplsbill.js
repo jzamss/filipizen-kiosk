@@ -2,7 +2,6 @@ import { writable } from 'svelte/store';
 
 const initialData = {
 	mode: 'init',
-	processing: false,
 	error: null,
 	entity: {}
 };
@@ -26,7 +25,7 @@ store.init = () => {
 store.getBilling = async (tdno) => {
 	store.update((e) => ({ ...e, processing: true }));
 	try {
-		const res = await fetch('/api/rpt/bill', {
+		const res = await fetch('/api/bpls/bill', {
 			method: 'POST',
 			body: JSON.stringify({ tdno }),
 			headers: {
@@ -36,7 +35,7 @@ store.getBilling = async (tdno) => {
 		const entity = await res.json();
 		if (entity.status === 'ERROR') {
 			store.update((e) => {
-				return { ...e, processing: false, error: entity.msg };
+				return { ...e, error: entity.msg, processing: false };
 			});
 		} else {
 			store.update((e) => {
