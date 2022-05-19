@@ -8,11 +8,12 @@ body{
     background-size: cover;
     background-repeat: no-repeat;
 }
+
 .s-IL5CpgFln3Ec {
     margin: 0 auto !important;
 }
-*/
 
+*/
 html, body{
     /*overflow: hidden;*/
     text-transform: uppercase !important;
@@ -23,9 +24,9 @@ html, body{
     }
     #modal.s-8zmRcHp9osYc{
         top: 0 !important;
-        margin-top: 210px !important;
+        margin-top: 200px !important;
         left: 0 !important;
-        margin-left: 145px;
+        margin-left: 85px;
     }
     button{
         display: none !important;
@@ -44,18 +45,37 @@ html, body{
         margin: 0px !important;
         padding: 0 !important;
         font-weight: bold;
+    } 
+    .pt-2{
+        padding-top: 0 rem !important;
+    }
+    .pb-2{
+        padding-bottom: 0 rem !important;
     }
     h2{
-        font-size: 18px !important;
+        font-size: 16px !important;
         margin: 0px !important;
         padding: 0 !important;
     }
     p{
-        font-size: 14px !important;
-        width: 180px !important;
-        margin-bottom: 10px !important;
+       display: none !important;
+        
     }
     .time{
         display:none !important;
     }
+    .note{
+        font-size: 10px !important;
+        width: 150px;
+        word-wrap: break-word;
+        text-align: center;
+        margin: 0 auto;
+        padding-top: 5px !important;
+    }
 }
+.note{
+    padding-top: 23px;
+    text-align: center;
+    margin: 0 auto;
+}
+

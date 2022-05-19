@@ -50,7 +50,7 @@
 {:else if $queue.section.ticket}
 	<Modal open={isOpenModal} on:cancel={() => (isOpenModal = false)}>
 		<h2 class="text-center text-4xl pt-5 pb-2 text-bold">QUEUING</h2>
-		<h2 class="text-center text-2xl pt-2">Queue Ticket No.</h2>
+		<h2 class="text-center text-2xl pt-2 ">Queue Ticket No.</h2>
 		<h1 class="text-center text-9xl pt-5 pb-5 text-bold mb-5">
 			{$queue.section.ticket.ticketno}
 		</h1>
@@ -66,10 +66,14 @@
 				alt="Queueing System"
 				caption="Print"
 				class="w-64 m-auto"
-				on:click={() => window.print()}
+				on:click={() => window.print()} 
 			/>
 		</div>
-		<p class="text-center text-1xl pt-4">Please wait until your number is called</p>
+		<div class="note">
+			Please wait until your number is called
+		</div>
+		
+		
 	</Modal>
 {/if}
 

@@ -1,8 +1,7 @@
 <script>
-	let dt = 'March 7, 2022';
-	let time = '1:40 PM';
+	let dt = 'May 13, 2022';
+	let time = '2:40 PM';
 </script>
-
 
 
 <footer class="p-5 flex absolute bottom-0 w-full">
@@ -12,7 +11,7 @@
         </a>
     </div>
     <div class="w-2/6">
-        <a href="/" alt="home icon link"><img src="/static/icons/home.svg" alt="home icon" class="w-60 m-auto" /></a>
+        <a href="/" alt="home icon link"><img src="" alt="home icon" class="w-60 m-auto" />Home</a>
     </div>
     <div class="m-auto time">
         <p class="text-4xl pl-5">{time}</p>
