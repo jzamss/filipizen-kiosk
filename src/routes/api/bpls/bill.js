@@ -5,12 +5,13 @@ const url = `http://${host}/osiris3/json/${module}`;
 export const post = async ({ request }) => {
 	const faas = await request.json();
 	try {
-		const res = await fetch(`${url}/gdx/OnlineLandTaxBillingService.getBilling?refno=${faas.tdno}`);
+		const res = await fetch(
+			`${url}/gdx/OnlineBusinessBillingService.getBilling?refno=${faas.tdno}`
+		);
 		const data = await res.json();
 		if (res.ok && data.status !== 'ERROR') {
-			const bill = getBill(data.info);
 			return {
-				body: bill
+				body: data.info
 			};
 		} else {
 			return {

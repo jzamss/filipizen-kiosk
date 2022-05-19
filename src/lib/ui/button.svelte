@@ -1,14 +1,20 @@
 <script>
+	import Spinner from '$lib/ui/spinner.svelte';
 	export let caption;
 	export let href = null;
 	export let alt = '';
 	export let leftIcon = null;
 	export let rightIcon = null;
+	export let processing = false;
+	export let disabled = false;
 	let clz = '';
 	export { clz as class };
 
 	const defualtClass =
 		'font-bold  text-xl  py-4  px-14 bg-white  bg-opacity-25  rounded-lg  shadow-xl  border-slate-400  border flex justify-center items-center';
+
+	$: processingClass = processing ? 'bg-gray-400' : '';
+	$: disabledClass = disabled ? 'bg-gray-500' : '';
 </script>
 
 {#if href}
@@ -17,6 +23,8 @@
 		{alt}
 		class="
 			{defualtClass}
+			{disabledClass}
+			{processingClass}
 			{clz}
 		"
 	>
@@ -33,20 +41,28 @@
 {:else}
 	<button
 		on:click
+		disabled={processing || disabled}
 		{alt}
 		class="
 		{defualtClass}
+		{disabledClass}
+		{processingClass}
 		{clz}
 	"
 	>
-		{#if leftIcon}
+		{#if leftIcon && !processing}
 			<img src={leftIcon} alt="menu" class="h-8 mr-2" />
 		{/if}
 		{#if caption}
 			{caption}
 		{/if}
-		{#if rightIcon}
+		{#if rightIcon && !processing}
 			<img src={rightIcon} alt="menu" class="h-8 ml-2" />
+		{/if}
+		{#if processing}
+			<div class="ml-6">
+				<Spinner />
+			</div>
 		{/if}
 	</button>
 {/if}

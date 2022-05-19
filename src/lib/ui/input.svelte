@@ -1,6 +1,7 @@
 <script>
 	export let value;
 	export let placeholder = '';
+	export let disabled = false;
 	let clazz = '';
 	export { clazz as class };
 
@@ -14,6 +15,7 @@
 <input
 	bind:this={inputRef}
 	bind:value
+	{disabled}
 	type="text"
 	{placeholder}
 	class="
