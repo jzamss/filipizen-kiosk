@@ -57,9 +57,13 @@ html, body{
         margin: 0px !important;
         padding: 0 !important;
     }
-    p{
-       display: none !important;
-        
+    h2{
+        display: none !important;
+    }
+    h3{
+        font-size: 14px !important;
+        margin: 0 !important;
+        padding: 0 !important;
     }
     .time{
         display:none !important;
@@ -71,6 +75,18 @@ html, body{
         text-align: center;
         margin: 0 auto;
         padding-top: 5px !important;
+    }
+    .subHeader{
+        display: none;
+    }
+    #modal {
+		top: 200px !important;
+		left: 100px !important;
+		width: 300px !important;
+		background: #fff;
+	}
+    .titleHeader{
+        display: none !important;
     }
 }
 .note{

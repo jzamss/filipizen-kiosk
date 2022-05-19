@@ -11,8 +11,8 @@
 		<div class="mt-10 w-3/4">
 			<div>
 				<h2 class="text-7xl font-bold ">{module}</h2>
-				<p class="text-2xl">{tg1}</p>
-				<p class="text-2xl">{tg2}</p>
+				<p class="text-2xl subHeader">{tg1}</p>
+				<p class="text-2xl subHeader">{tg2}</p>
 			</div>
 		</div>
 		<div class="mt-10 w-1/4">
