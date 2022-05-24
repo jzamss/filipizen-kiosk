@@ -5,7 +5,7 @@
 	import Footer from '$lib/footer-master.svelte';
 </script>
 
-<div class="mx-auto bg-kiosk-bg">
+<div class="mx-auto bg-cyan-500">
 	<div>
 		<Header />
 		<slot />

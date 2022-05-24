@@ -16,7 +16,7 @@
 <Title module="Menu" />
 <div class="flex flex-col justify-between">
 	<main>
-		<div class="grid grid-cols-3 grid-rows-3 m-20">
+		<div class="grid grid-cols-3 grid-rows-3 m-20 h-screen">
 			{#each menus as menu, idx}
 				<div in:fly={{ x: -300, duration: 200 + 200 * idx }}>
 					<a href={menu.link} alt={menu.name}>
