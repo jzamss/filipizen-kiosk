@@ -17,7 +17,7 @@
 {:else if $queue.groups.length === 0}
 	<h1>Loading...</h1>
 {:else}
-	<main class="bg-cyan-500 h-screen ">
+	<main class="bg-gray-300 h-screen ">
 		<div class="grid grid-cols-2 grid-rows-2 pt-20">
 			{#each $queue.groups as group, idx (group.objid)}
 				<div in:fly={{ x: -400, duration: 200 + 200 * idx }}>

@@ -27,7 +27,7 @@
 </script>
 
 <Title module="Select Classification" />
-<main class="mb-auto bg-cyan-500">
+<main class="mb-auto bg-gray-300 h-screen">
 	<div class="grid grid-cols-2 grid-rows-2 m-20">
 		{#if $queue.group}
 			{#each $queue.group.sections as section, idx (section.objid)}

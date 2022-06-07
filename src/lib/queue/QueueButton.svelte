@@ -7,7 +7,8 @@
 </script>
 
 {#if href}
-	<Button {href} alt={title} caption="{title}" class="w-1/2 h-20 m-auto inline-block px-6 py-2 border-2 border-blue-600 text-blue-600 font-medium text-1xl leading-tight uppercase rounded"/>
+	<Button {href} alt={title} caption="{title}" class="w-1/2 h-20 m-auto bg-red-900 "/>
+	
 {:else}
-	<Button caption="{title}" on:click class="w-1/2 h-20 m-auto inline-block px-6 py-2 border-2 border-blue-600 text-blue-600 font-medium text-1xl leading-tight uppercase rounded" />
+	<Button caption="{title}" on:click class="" />
 {/if}

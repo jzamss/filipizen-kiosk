@@ -4,19 +4,55 @@
 @tailwind utilities;
 /*
 body{
-    background-image:url("static/bg.jpg");
-    background-size: cover;
+    background-image:url("static/bg.svg");
+    background-repeat: no-repeat;
+    background-position: 20% 25%;
+}
+*/
+
+.header-bg{
+    background-image:url("static/icons/header-bg.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.content-bg{
+    background-image:url("static/icons/content-bg.svg");
     background-repeat: no-repeat;
 }
-
-.s-IL5CpgFln3Ec {
-    margin: 0 auto !important;
+.queue{
+    background-image:url("static/menu-bg/queue.jpg");  
+}
+.bpls{
+    background-image:url("static/menu-bg/bpls.jpg"); 
+    background-size: contain;
+    background-size: cover;
+}
+.rpt{
+    background-image:url("static/menu-bg/rpt.jpg"); 
+    background-size: contain;
+    background-size: cover;
+}
+.cedula{
+    background-image:url("static/menu-bg/cedula.jpg");
+    background-size: 100% 100%;  
+    background-size: contain;
+    background-size: cover;
+}
+.market{
+    background-image:url("static/menu-bg/market.jpg");
+    background-size: 100% 100%;  
+    background-size: contain;
+    background-size: cover;
+}
+.water{
+    background-image:url("static/menu-bg/water.jpg"); 
+    background-size: contain;
+    background-size: cover;
 }
 
-*/
 html, body{
-    /*overflow: hidden;*/
-    text-transform: uppercase !important;
+    /*overflow: hidden;
+    text-transform: uppercase !important;*/
 }
 @media print{
     header-master{

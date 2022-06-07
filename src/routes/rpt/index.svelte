@@ -6,10 +6,13 @@
 </script>
 
 <Title module="Real Property Tax" />
-<main class="mb-auto">
-	<div class="grid grid-cols-2 grid-rows-2 m-20">
-		{#each options as option}
-			<Menu title={option.title} href={option.href} />
-		{/each}
-	</div>
-</main>
+<div class="h-screen bg-gray-300">
+	<main class="mb-auto">
+		<div class="grid grid-cols-2 grid-rows-2">
+			{#each options as option}
+				<Menu title={option.title} href={option.href} />
+			{/each}
+		</div>
+	</main>
+</div>
+
