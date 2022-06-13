@@ -6,9 +6,10 @@
 	import Button from '$lib/ui/button.svelte';
 </script>
 
+<div class="mb-5 mx-10">
 {#if href}
-	<Button {href} alt={title} caption="{title}" class="w-1/2 h-20 m-auto bg-red-900 "/>
-	
+	<Button {href} alt={title} caption="{title}" class="py-10 modern m-auto w-full"/>
 {:else}
-	<Button caption="{title}" on:click class="" />
+	<Button caption="{title}" on:click class="modern w-full py-10" />
 {/if}
+</div>

@@ -59,6 +59,7 @@
 					on:click={moveBack}
 					disabled={processing}
 					caption="Cancel"
+					class="modern w-48"
 					leftIcon="/static/icons/cancel.svg"
 				/>
 			</div>
@@ -68,6 +69,7 @@
 					disabled={isEmpty(entity.refno)}
 					{processing}
 					caption="Next"
+					class="modern w-48"
 					rightIcon="/static/icons/next.svg"
 				/>
 			</div>
@@ -95,7 +97,7 @@
 					on:click={() => (printBill = true)}
 					caption="Pay to Cashier"
 					rightIcon="/static/icons/print.svg"
-					class="float-rights"
+					class="float-rights w-48"
 				/>
 			</div>
 		</ActionBar>
@@ -105,7 +107,7 @@
 		<ModalPrint open={printBill} afterPrint={() => (printBill = false)}>
 			<h2 class="text-center text-4xl pt-5 pb-2 text-bold">BUSINESS BILLING</h2>
 			<h2 class="text-center text-2xl pt-2">Amount</h2>
-			<h1 class="text-center text-9xl pt-5 pb-5 text-bold mb-5">
+			<h1 class="text-center text-9xl pt-5 pb-5 text-bold mb-5 mt-10">
 				{entity.amount}
 			</h1>
 			<p class="text-center text-2xl">{entity.barcode}</p>

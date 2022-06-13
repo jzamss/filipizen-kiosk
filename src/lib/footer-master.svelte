@@ -1,7 +1,3 @@
-<script>
-	let dt = 'May 13, 2022';
-	let time = '2:40 PM';
-</script>
 
 
 <footer class="p-5 flex absolute bottom-0 w-full bg-gray-200">

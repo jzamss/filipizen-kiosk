@@ -27,8 +27,8 @@
 </script>
 
 <Title module="Select Classification" />
-<main class="mb-auto bg-gray-300 h-screen">
-	<div class="grid grid-cols-2 grid-rows-2 m-20">
+<main class="mb-auto h-screen">
+	<div class="m-20 px-40">
 		{#if $queue.group}
 			{#each $queue.group.sections as section, idx (section.objid)}
 				<div in:fly={{ x: -300, duration: 200 + 200 * idx }}>
@@ -37,12 +37,11 @@
 			{/each}
 		{/if}
 	</div>
-	<div class="bottom-96 absolute w-full m-auto">
+	<div class="bottom-48 absolute w-full ">
 		<Button
 			on:click={backHandler}
 			caption="Back"
-			class="m-auto w-1/5 h-20 inline-block px-6 py-2 border-2 border-red-600 text-red-600 font-medium text-1xl leading-tight uppercase rounded"
-			leftIcon="/static/icons/back.svg"
+			class="w-1/5 ml-10 modern"
 		/>
 	</div>
 </main>
@@ -51,12 +50,15 @@
 	<h1 class="text-red-600 font-bold text-center titleHeader">{$queue.error}</h1>
 {:else if $queue.section.ticket}
 	<ModalPrint open={isOpenModal} afterPrint={() => ($queue.section.ticket = null)}>
-		<h3 class="text-center text-4xl pt-5 pb-2 text-bold titleHeader">QUEUING</h3>
-		<h3 class="text-center text-2xl pt-2 ">Queue Ticket No.</h3>
-		<h1 class="text-center text-9xl pt-5 pb-5 text-bold mb-5">
-			{$queue.section.ticket.ticketno}
-		</h1>
-		<p class="text-center text-1xl pt-4 note">Please wait until your number is called</p>
+		<div class="print">
+			<h2 class="text-center text-4xl pt-5 pb-2 text-bold">Queue Ticket</h2>
+			<h2 class="text-center text-2xl pt-2 ">Ticket Number</h2>
+			<h1 class="text-center text-9xl pt-5 pb-5 text-bold mb-5">
+				{$queue.section.ticket.ticketno}
+			</h1>
+			<p class="text-center text-1xl pt-4 note">Please wait until your number is called</p>
+		</div>
+		
 	</ModalPrint>
 {/if}
 

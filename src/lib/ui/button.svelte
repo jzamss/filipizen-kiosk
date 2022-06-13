@@ -11,14 +11,14 @@
 	export { clz as class };
 
 	const defualtClass =
-		'font-bold  text-xl  py-4  px-14 bg-white  rounded-lg  shadow-xl  border-slate-400  border flex justify-center items-center';
+		'font-bold  text-xl  py-6 text-center bg-white  rounded-lg  shadow-xl  border-slate-400  border flex justify-center items-center';
 
 	$: processingClass = processing ? 'bg-gray-400' : '';
 	$: disabledClass = disabled ? 'bg-gray-500' : '';
 </script>
 
 {#if href}
-	<button
+	<a
 		{href}
 		{alt}
 		class="
@@ -37,7 +37,7 @@
 		{#if rightIcon}
 			<img src={rightIcon} alt="menu" class="rotate-180 h-8 ml-2" />
 		{/if}
-</button>
+</a>
 {:else}
 	<button
 		on:click

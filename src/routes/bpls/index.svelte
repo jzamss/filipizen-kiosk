@@ -6,8 +6,8 @@
 </script>
 
 <Title module="Business Permit" />
-<main class="mb-auto">
-	<div class="grid grid-cols-2 grid-rows-2 m-20">
+<main class="h-screen ">
+	<div class="pt-20 px-40">
 		{#each options as option}
 			<Menu title={option.title} href={option.href} />
 		{/each}

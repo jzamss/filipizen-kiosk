@@ -38,7 +38,7 @@
 </script>
 
 <Title module="Real Property Tax Billing" />
-<div class="h-screen bg-gray-300">
+<div class="h-screen">
 	<div class="mx-16">
 		{#if mode === 'init'}
 			<div class="py-40 mx-20">
@@ -61,6 +61,7 @@
 						disabled={processing}
 						caption="Cancel"
 						leftIcon="/static/icons/cancel.svg"
+						class="modern w-48"
 					/>
 				</div>
 				<div>
@@ -70,12 +71,14 @@
 						{processing}
 						caption="Next"
 						rightIcon="/static/icons/next.svg"
+						class="modern w-48"
 					/>
 				</div>
 			</ActionBar>
 		{/if}
 
 		{#if mode === 'bill'}
+		<div class="DontPrint">
 			<Panel>
 				<Subtitle title="Property Information" class="my-4" />
 				<div class="text-2xl">
@@ -97,8 +100,8 @@
 					<Label caption="Assessed Value" value={currencyFormat(entity.ledger.totalav)} />
 				</div>
 				<br />
-				<div class="bg-gray-300 px-5 text-2xl">
-					<Subtitle title="Billing Information" class="mb-4" />
+				<div class="bg-gray-300 p-3 text-2xl">
+					<Subtitle title="Billing Information" class="mb-1" />
 					<Label caption="BILL PERIOD" value={entity.billperiod} />
 					<Label caption="BILL AMOUNT" value={currencyFormat(entity.totals.total)} />
 				</div>
@@ -119,16 +122,15 @@
 					</div>
 				</div>
 			</Panel>
+		</div>
 			<ActionBar>
 				<div class="w-9/12">
-					<Button on:click={moveBack} caption="Back" leftIcon="/static/icons/back.svg" />
+					<Button on:click={moveBack} caption="Back" leftIcon="/static/icons/back.svg" class="modern w-48"/>
 				</div>
 				<div>
-					<Button
-						on:click={() => (printBill = true)}
-						caption="Pay to Cashier"
+					<Button on:click={() => (printBill = true)} caption="Pay to Cashier"
 						rightIcon="/static/icons/print.svg"
-						class="float-rights"
+						class="float-rights modern w-56"
 					/>
 				</div>
 			</ActionBar>
@@ -136,12 +138,14 @@
 
 		{#if printBill}
 			<ModalPrint open={printBill} afterPrint={() => (printBill = false)}>
-				<h2 class="text-center text-4xl pt-5 pb-2 text-bold">REAL PROPERTY TAX BILL</h2>
-				<h2 class="text-center text-2xl pt-2">Amount</h2>
-				<h1 class="text-center text-9xl pt-5 pb-5 text-bold mb-5">
-					{currencyFormat(entity.totals.total)}
-				</h1>
-				<p class="text-center text-2xl">{entity.barcode}</p>
+				<div class="print">
+					<h2 class="text-center text-4xl mt-5 text-bold">REAL PROPERTY TAX BILL</h2>
+					<h2 class="text-center text-2xl pt-2">Amount</h2>
+					<h1 class="text-center text-6xl pt-5 text-bold mb-5">
+						{currencyFormat(entity.totals.total)}
+					</h1>
+					<p class="text-center text-2xl">{entity.barcode}</p>
+				</div>
 			</ModalPrint>
 		{/if}
 	</div>

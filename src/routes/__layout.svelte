@@ -1,7 +1,6 @@
 <script>
 	import '../app.css';
 	import 'svelte';
-	import 'tw-elements';
 	import Header from '$lib/header-master.svelte';
 	import Footer from '$lib/footer-master.svelte';
 </script>

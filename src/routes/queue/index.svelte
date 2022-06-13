@@ -10,15 +10,16 @@
 	});
 </script>
 
-<Title module="Queuing" />
+
+<Title module="Select Transaction" />
 
 {#if $queue.error}
 	<h1 class="text-red-500">{$queue.error}</h1>
 {:else if $queue.groups.length === 0}
 	<h1>Loading...</h1>
 {:else}
-	<main class="bg-gray-300 h-screen ">
-		<div class="grid grid-cols-2 grid-rows-2 pt-20">
+	<main class="h-screen ">
+		<div class="pt-20 px-40">
 			{#each $queue.groups as group, idx (group.objid)}
 				<div in:fly={{ x: -400, duration: 200 + 200 * idx }}>
 					<QueueButton href="/queue/{group.objid.toLowerCase()}" title={group.title}/>

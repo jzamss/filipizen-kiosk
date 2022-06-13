@@ -19,42 +19,137 @@ body{
     background-image:url("static/icons/content-bg.svg");
     background-repeat: no-repeat;
 }
+.lguLogo{
+    background-image:url("static/lgu-logo");
+}
 .queue{
-    background-image:url("static/menu-bg/queue.jpg");  
+    background-image:url("static/icons/queue.png");  
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: 150px 110px;
+    background-position: center center;
+}
+.queue:hover{
+    background-image:url("static/icons/queue-hover.png");  
+    background-repeat: no-repeat;
+    background-size: 150px 110px;
+    background-position: center center;
 }
 .bpls{
-    background-image:url("static/menu-bg/bpls.jpg"); 
-    background-size: contain;
-    background-size: cover;
+    background-image:url("static/icons/bpls.png"); 
+    background-repeat: no-repeat;
+    background-size: 150px 110px;
+    background-position: center center;
+}
+.bpls:hover{
+    background-image:url("static/icons/bpls-hover.png"); 
+    background-repeat: no-repeat;
+    background-size: 150px 110px;
+    background-position: center center;
 }
 .rpt{
-    background-image:url("static/menu-bg/rpt.jpg"); 
-    background-size: contain;
-    background-size: cover;
+    background-image:url("static/icons/rpt.png"); 
+    background-repeat: no-repeat;
+    background-size: 150px 110px;
+    background-position: center center;
+}
+.rpt:hover{
+    background-image:url("static/icons/rpt-hover.png"); 
+    background-repeat: no-repeat;
+    background-size: 150px 110px;
+    background-position: center center;
 }
 .cedula{
-    background-image:url("static/menu-bg/cedula.jpg");
+    background-image:url("static/icons/cedula.png");
     background-size: 100% 100%;  
-    background-size: contain;
-    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: 150px 110px;
+    background-position: center center;
 }
-.market{
-    background-image:url("static/menu-bg/market.jpg");
+.police{
+    background-image:url("static/icons/police.png");
     background-size: 100% 100%;  
-    background-size: contain;
-    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: 150px 110px;
+    background-position: center center;
 }
 .water{
-    background-image:url("static/menu-bg/water.jpg"); 
-    background-size: contain;
-    background-size: cover;
+    background-image:url("static/icons/water.png"); 
+    background-repeat: no-repeat;
+    background-size: 150px 110px;
+    background-position: center center;
 }
 
 html, body{
     /*overflow: hidden;
     text-transform: uppercase !important;*/
 }
+
+  .modern {
+    background: linear-gradient(135deg, #adb5bd, #eee);
+    border: 1px solid rgba(0,0,0,0.15);
+    border-radius: 4px;
+    transition: all 0.3s ease-out;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.5),
+      0 2px 2px rgba(0,0,0,0.3),
+      0 0 4px 1px rgba(0,0,0,0.2);
+  
+    /* Font styles */
+    text-decoration: none;
+    text-shadow: 0 1px rgba(255,255,255,0.7);
+  }
+  
+  .modern:hover  { background: #0311d4;color: #fff;}
+  
+  .embossed-link {
+    box-shadow: 
+      inset 0 3px 2px rgba(255,255,255,.22), 
+      inset 0 -3px 2px rgba(0,0,0,.17), 
+      inset 0 20px 10px rgba(255,255,255,.12), 
+      0 0 4px 1px rgba(0,0,0,.1), 
+      0 3px 2px rgba(0,0,0,.2);
+  }
+  
+  .modern.embossed-link {
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.5),
+      0 2px 2px rgba(0,0,0,0.3),
+      0 0 4px 1px rgba(0,0,0,0.2),
+      inset 0 3px 2px rgba(255,255,255,.22), 
+      inset 0 -3px 2px rgba(0,0,0,.15), 
+      inset 0 20px 10px rgba(255,255,255,.12), 
+      0 0 4px 1px rgba(0,0,0,.1), 
+      0 3px 2px rgba(0,0,0,.2);
+  }
+  
+  .modern.embossed-link:active {
+    box-shadow: 
+      inset 0 -2px 1px rgba(255,255,255,0.2),
+      inset 0 3px 2px rgba(0,0,0,0.12);
+  }
+  .note{
+    padding-top: 23px;
+    text-align: center;
+    margin: 0 auto;
+}
+  
+  @media (min-width: 700px) {
+    body {
+      grid-template-columns: repeat(3, 200px);
+    }
+  }
+  
 @media print{
+    .print{
+        margin-left: 70px !important;
+        margin-top: 5px;
+    }
+    .print h2{
+        font-size: 16px !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
     header-master{
         display: none !important;
     }
@@ -73,9 +168,6 @@ html, body{
     img{
         display: none;
     }
-    .title{
-        display: none !important;
-    }
     h1{
         font-size: 50px !important;
         margin: 0px !important;
@@ -88,22 +180,6 @@ html, body{
     .pb-2{
         padding-bottom: 0 rem !important;
     }
-    h2{
-        font-size: 16px !important;
-        margin: 0px !important;
-        padding: 0 !important;
-    }
-    h2{
-        display: none !important;
-    }
-    h3{
-        font-size: 14px !important;
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-    .time{
-        display:none !important;
-    }
     .note{
         font-size: 10px !important;
         width: 150px;
@@ -112,22 +188,18 @@ html, body{
         margin: 0 auto;
         padding-top: 5px !important;
     }
-    .subHeader{
-        display: none;
-    }
     #modal {
 		top: 200px !important;
 		left: 100px !important;
 		width: 300px !important;
 		background: #fff;
 	}
-    .titleHeader{
+    .border-b-sky-700{
+        border: 0;
+    }
+    .DontPrint{
         display: none !important;
     }
 }
-.note{
-    padding-top: 23px;
-    text-align: center;
-    margin: 0 auto;
-}
+
 
