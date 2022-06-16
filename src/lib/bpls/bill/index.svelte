@@ -9,26 +9,46 @@
 	import Button from '$lib/ui/button.svelte';
 	import Label from '$lib/ui/label.svelte';
 	import Error from '$lib/ui/error.svelte';
+	import Modal from '$lib/ui/modal.svelte';
+	import Select from '$lib/ui/select.svelte';
 	import ModalPrint from '$lib/ui/modal-print.svelte';
 	import { currencyFormat, isEmpty } from '$lib/helper.js';
 
 	let inputRef = null;
 	let printBill = false;
+	let openPayOption = false;
 
 	$: mode = $bill.mode;
 	$: error = $bill.error;
 	$: processing = $bill.processing;
 	$: entity = $bill.entity;
+	$: po = $bill.po;
 
 	const getBilling = () => {
-		bill.getBilling($bill.entity.refno);
-		inputRef.focus();
+		bill.getBilling({ bin: $bill.entity.refno });
+	};
+
+	const recalcBilling = async () => {
+		await bill.getBilling({
+			bin: $bill.entity.refno,
+			qtr: $bill.entity.billtoqtr
+		});
+		if (!error) {
+			openPayOption = false;
+		}
 	};
 
 	const moveBack = async () => {
 		bill.setMode('init');
 		await tick();
 		inputRef.focus();
+	};
+
+	const payToCashier = async () => {
+		await bill.createPaymentOrder($bill.entity);
+		if (!error) {
+			printBill = true;
+		}
 	};
 
 	onMount(() => {
@@ -56,7 +76,7 @@
 		<ActionBar>
 			<div class="w-9/12">
 				<Button
-					on:click={moveBack}
+					href="/bpls"
 					disabled={processing}
 					caption="Cancel"
 					class="modern w-48"
@@ -90,17 +110,57 @@
 		</Panel>
 		<ActionBar>
 			<div class="w-9/12">
-				<Button on:click={moveBack} caption="Back" leftIcon="/static/icons/back.svg" />
+				<Button
+					on:click={moveBack}
+					caption="Back"
+					leftIcon="/static/icons/back.svg"
+					disabled={processing}
+				/>
+			</div>
+			<div class="w-9/12">
+				<Button
+					on:click={() => (openPayOption = true)}
+					caption="Pay Option"
+					disabled={processing}
+				/>
 			</div>
 			<div>
 				<Button
-					on:click={() => (printBill = true)}
+					on:click={payToCashier}
 					caption="Pay to Cashier"
 					rightIcon="/static/icons/print.svg"
 					class="float-rights w-48"
+					disabled={$bill.entity.amount === 0}
+					{processing}
 				/>
 			</div>
 		</ActionBar>
+		{#if error}
+			<Error {error} />
+		{/if}
+	{/if}
+
+	{#if mode === 'queue'}
+		<div class="flex flex-col items-center my-20 max-w-lg mx-auto">
+			<Button href="/queue" caption="Generate a Queue Number?" class="w-full mb-6" />
+			<Button href="/bpls" caption="No, Thanks" class="w-full" />
+		</div>
+	{/if}
+
+	{#if openPayOption}
+		<Modal title="Payment Option" open={openPayOption} on:cancel={() => (openPayOption = false)}>
+			<div>
+				<Select
+					caption="Select Quarter to Pay"
+					bind:value={$bill.entity.billtoqtr}
+					options={[1, 2, 3, 4]}
+				/>
+			</div>
+			<ActionBar>
+				<Button on:click={() => (openPayOption = false)} caption="Cancel" />
+				<Button on:click={recalcBilling} caption="Submit" />
+			</ActionBar>
+		</Modal>
 	{/if}
 
 	{#if printBill}
@@ -108,9 +168,9 @@
 			<h2 class="text-center text-4xl pt-5 pb-2 text-bold">BUSINESS BILLING</h2>
 			<h2 class="text-center text-2xl pt-2">Amount</h2>
 			<h1 class="text-center text-9xl pt-5 pb-5 text-bold mb-5 mt-10">
-				{entity.amount}
+				{po.amount}
 			</h1>
-			<p class="text-center text-2xl">{entity.barcode}</p>
+			<p class="text-center text-2xl">{po.barcode}</p>
 		</ModalPrint>
 	{/if}
 </div>

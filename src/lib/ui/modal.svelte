@@ -2,17 +2,31 @@
 	import { createEventDispatcher } from 'svelte';
 
 	export let open = false;
+	export let title = undefined;
 
 	const dispatch = createEventDispatcher();
 
 	const cancelHandler = () => {
-        open = false;
+		open = false;
 		dispatch('cancel');
 	};
 </script>
 
 <div id="background" style="--display: {open ? 'block' : 'none'};" on:click={cancelHandler} />
 <div id="modal" style="--display: {open ? 'block' : 'none'};">
+	{#if title}
+		<h1
+			class="
+			text-center 
+			text-4xl 
+			my-6
+			pb-4
+			border-b-4
+		"
+		>
+			{title}
+		</h1>
+	{/if}
 	<slot />
 </div>
 
