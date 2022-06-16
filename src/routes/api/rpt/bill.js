@@ -1,11 +1,13 @@
-const host = 'localhost:8070';
-const module = 'etracs25';
-const url = `http://${host}/osiris3/json/${module}`;
+import { appServerUrl } from '$lib/settings.js';
 
 export const post = async ({ request }) => {
+	console.log('appServerUrl', appServerUrl);
+
 	const faas = await request.json();
 	try {
-		const res = await fetch(`${url}/gdx/OnlineLandTaxBillingService.getBilling?refno=${faas.tdno}`);
+		const res = await fetch(
+			`${appServerUrl}/gdx/OnlineLandTaxBillingService.getBilling?refno=${faas.tdno}`
+		);
 		const data = await res.json();
 		if (res.ok && data.status !== 'ERROR') {
 			const bill = getBill(data.info);

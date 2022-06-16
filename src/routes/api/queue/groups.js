@@ -1,10 +1,8 @@
-const host = 'localhost:8070';
-const module = 'etracs25';
-const url = `http://${host}/osiris3/json/${module}`;
+import { appServerUrl } from '$lib/settings.js';
 
 export const get = async () => {
 	try {
-		const res = await fetch(`${url}/QueueGroupService.getGroupsWithSections`);
+		const res = await fetch(`${appServerUrl}/QueueGroupService.getGroupsWithSections`);
 
 		const data = await res.json();
 		if (res.ok) {
