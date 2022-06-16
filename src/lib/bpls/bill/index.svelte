@@ -9,14 +9,14 @@
 	import Button from '$lib/ui/button.svelte';
 	import Label from '$lib/ui/label.svelte';
 	import Error from '$lib/ui/error.svelte';
-	import Modal from '$lib/ui/modal.svelte';
-	import Select from '$lib/ui/select.svelte';
+	import GenerateQueue from '$lib/components/generate-queue.svelte';
+	import BillOption from '$lib/components/bill-option.svelte';
 	import ModalPrint from '$lib/ui/modal-print.svelte';
 	import { currencyFormat, isEmpty } from '$lib/helper.js';
 
 	let inputRef = null;
 	let printBill = false;
-	let openPayOption = false;
+	let openBillOption = false;
 
 	$: mode = $bill.mode;
 	$: error = $bill.error;
@@ -28,13 +28,13 @@
 		bill.getBilling({ bin: $bill.entity.refno });
 	};
 
-	const recalcBilling = async () => {
+	const recalcBilling = async (billOption) => {
 		await bill.getBilling({
 			bin: $bill.entity.refno,
-			qtr: $bill.entity.billtoqtr
+			qtr: billOption.detail.billtoqtr
 		});
 		if (!error) {
-			openPayOption = false;
+			openBillOption = false;
 		}
 	};
 
@@ -119,7 +119,7 @@
 			</div>
 			<div class="w-9/12">
 				<Button
-					on:click={() => (openPayOption = true)}
+					on:click={() => (openBillOption = true)}
 					caption="Pay Option"
 					disabled={processing}
 				/>
@@ -141,26 +141,18 @@
 	{/if}
 
 	{#if mode === 'queue'}
-		<div class="flex flex-col items-center my-20 max-w-lg mx-auto">
-			<Button href="/queue" caption="Generate a Queue Number?" class="w-full mb-6" />
-			<Button href="/bpls" caption="No, Thanks" class="w-full" />
-		</div>
+		<GenerateQueue queueHref="/queue/bpls" moduleHref="/bpls" />
 	{/if}
 
-	{#if openPayOption}
-		<Modal title="Payment Option" open={openPayOption} on:cancel={() => (openPayOption = false)}>
-			<div>
-				<Select
-					caption="Select Quarter to Pay"
-					bind:value={$bill.entity.billtoqtr}
-					options={[1, 2, 3, 4]}
-				/>
-			</div>
-			<ActionBar>
-				<Button on:click={() => (openPayOption = false)} caption="Cancel" />
-				<Button on:click={recalcBilling} caption="Submit" />
-			</ActionBar>
-		</Modal>
+	{#if openBillOption}
+		<BillOption
+			open={openBillOption}
+			billtoyear={$bill.entity.billtoyear}
+			billtoqtr={$bill.entity.billtoqtr}
+			on:cancel={() => (openBillOption = false)}
+			on:submit={recalcBilling}
+		/>
+		<h1>{$bill.entity.billtoqtr}</h1>
 	{/if}
 
 	{#if printBill}

@@ -1,7 +1,7 @@
 import { writable } from 'svelte/store';
 
 const initialData = {
-	mode: 'queue',
+	mode: 'init',
 	error: null,
 	entity: {}
 };
