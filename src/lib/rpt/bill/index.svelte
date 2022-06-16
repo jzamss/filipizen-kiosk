@@ -1,5 +1,6 @@
 <script>
 	import { onMount, tick } from 'svelte';
+	import QRCode from '$lib/ui/qrjs.svelte';
 	import bill from '$lib/stores/rptbill';
 	import ActionBar from '$lib/ui/action-bar.svelte';
 	import Title from '$lib/title.svelte';
@@ -38,10 +39,10 @@
 </script>
 
 <Title module="Real Property Tax Billing" />
-<div class="h-screen">
+<div>
 	<div class="mx-16">
 		{#if mode === 'init'}
-			<div class="py-40 mx-20">
+			<div class="py-28 mx-20">
 				<Input
 					bind:this={inputRef}
 					bind:value={entity.tdno}
@@ -141,10 +142,10 @@
 				<div class="print">
 					<h2 class="text-center text-4xl mt-5 text-bold">REAL PROPERTY TAX BILL</h2>
 					<h2 class="text-center text-2xl pt-2">Amount</h2>
-					<h1 class="text-center text-6xl pt-5 text-bold mb-5">
+					<h1 class="text-center text-4xl pt-5 text-bold mb-5">
 						{currencyFormat(entity.totals.total)}
 					</h1>
-					<p class="text-center text-2xl">{entity.barcode}</p>
+					{entity.barcode}
 				</div>
 			</ModalPrint>
 		{/if}

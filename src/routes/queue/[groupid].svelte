@@ -27,7 +27,7 @@
 </script>
 
 <Title module="Select Classification" />
-<main class="mb-auto h-screen">
+<main class="mb-auto DontPrint">
 	<div class="m-20 px-40">
 		{#if $queue.group}
 			{#each $queue.group.sections as section, idx (section.objid)}
@@ -47,7 +47,7 @@
 </main>
 
 {#if $queue.error}
-	<h1 class="text-red-600 font-bold text-center titleHeader">{$queue.error}</h1>
+	<h1 class="text-red-600 font-bold text-center DontPrint">{$queue.error}</h1>
 {:else if $queue.section.ticket}
 	<ModalPrint open={isOpenModal} afterPrint={() => ($queue.section.ticket = null)}>
 		<div class="print">

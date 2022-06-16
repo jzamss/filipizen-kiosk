@@ -40,7 +40,7 @@
 <div class="mx-16">
 	{#if mode === 'init'}
 		<Title module="Business Billing" />
-		<div class="my-40 mx-20">
+		<div class="my-28 mx-20">
 			<Input
 				bind:this={inputRef}
 				disabled={processing}
