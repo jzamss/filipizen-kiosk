@@ -1,12 +1,13 @@
 import { appServerUrl } from '$lib/settings.js';
+import { encodeParam } from '$lib/helper.js';
 
 export const post = async ({ request }) => {
-	console.log('appServerUrl', appServerUrl);
-
-	const faas = await request.json();
+	const param = await request.json();
+	const encodedParam = encodeParam(param);
+	console.log('encodedParam', encodedParam);
 	try {
 		const res = await fetch(
-			`${appServerUrl}/gdx/OnlineLandTaxBillingService.getBilling?refno=${faas.tdno}`
+			`${appServerUrl}/gdx/OnlineLandTaxBillingService.getBilling?${encodedParam}`
 		);
 		const data = await res.json();
 		if (res.ok && data.status !== 'ERROR') {
@@ -59,6 +60,7 @@ const getBill = (info) => {
 			rputype: getPropertyType(info.rputype),
 			taxpayer: info.taxpayer
 		},
+		billid: info.billid,
 		tdno: info.tdno,
 		billtoyear: info.billtoyear,
 		billtoqtr: info.billtoqtr,
@@ -67,6 +69,10 @@ const getBill = (info) => {
 		billto: info.billto,
 		barcode: info.billno,
 		billperiod: info.billperiod,
-		validuntil: info.validuntil
+		validuntil: info.validuntil,
+		fromyear: info.fromyear,
+		fromqtr: info.fromqtr,
+		toyear: info.toyear,
+		toqtr: info.toqtr
 	};
 };

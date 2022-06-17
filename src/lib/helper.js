@@ -25,3 +25,18 @@ export const timeFormat = (
 ) => {
 	return new Intl.DateTimeFormat(locale, options).format(dt);
 };
+
+export const range = (min, max) => [...Array(max - min + 1).keys()].map((i) => i + min);
+
+export const encodeParam = (param) => {
+	return Object.keys(param)
+		.reduce((arr, key) => {
+			if (param.hasOwnProperty(key)) {
+				arr.push(`${key}=${param[key]}`);
+			} else {
+				arr;
+			}
+			return arr;
+		}, [])
+		.join('&');
+};

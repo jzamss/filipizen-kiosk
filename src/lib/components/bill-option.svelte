@@ -1,14 +1,31 @@
 <!-- src/Modal.svelte -->
 <script>
 	import { createEventDispatcher } from 'svelte';
+	import { range } from '$lib/helper.js';
 	import Select from '$lib/ui/select.svelte';
 
 	const dispatch = createEventDispatcher();
 
 	export let open;
-	export let billtoyear = undefined;
+	export let fromqtr = undefined;
+	export let fromyear = undefined;
+	export let toyear = undefined;
+	export let billtoyear = undefined || toyear;
 	export let billtoqtr = 4;
-	export let years = [];
+
+	let years = [];
+	let qtrs = [1, 2, 3, 4];
+
+	$: if (fromyear !== undefined && toyear !== undefined) {
+		years = range(fromyear, toyear);
+	}
+
+	$: if (billtoyear === fromyear) {
+		qtrs = range(fromqtr, 4);
+	} else {
+		qtrs = range(1, 4);
+		billtoqtr = 4;
+	}
 
 	function onSubmit() {
 		dispatch('submit', { billtoyear, billtoqtr });
@@ -43,7 +60,7 @@
 		>
 			Quarter to Bill
 		</label>
-		<Select bind:value={billtoqtr} options={[1, 2, 3, 4]} />
+		<Select bind:value={billtoqtr} options={qtrs} />
 	</div>
 	<br />
 	<hr />
