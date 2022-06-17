@@ -37,7 +37,7 @@
 		{#if rightIcon}
 			<img src={rightIcon} alt="menu" class="rotate-180 h-8 ml-2" />
 		{/if}
-</a>
+	</a>
 {:else}
 	<button
 		on:click

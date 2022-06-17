@@ -10,7 +10,9 @@ export const currencyFormat = (amount) => {
 };
 
 export const isEmpty = (value) => {
-	return !value;
+	return typeof value === undefined || typeof value === 'string'
+		? value.trim().length === 0
+		: !value;
 };
 
 export const dateFormat = (dt, options = { year: 'numeric', month: 'long', day: 'numeric' }) => {

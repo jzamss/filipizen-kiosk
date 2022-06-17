@@ -2,7 +2,6 @@ import { appServerUrl } from '$lib/settings.js';
 
 export const post = async ({ request }) => {
 	const bill = await request.json();
-	console.log('bill', bill);
 	const po = {
 		typeid: 'BPLS',
 		connection: 'default',
