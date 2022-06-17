@@ -4,9 +4,7 @@ const initialData = {
 	mode: 'init',
 	processing: false,
 	error: null,
-	entity: {
-		refno: 'TEST-0001'
-	}
+	entity: {}
 };
 
 const createStore = () => {
