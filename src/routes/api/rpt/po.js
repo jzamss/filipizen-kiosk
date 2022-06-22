@@ -3,22 +3,25 @@ import { appServerUrl } from '$lib/settings.js';
 export const post = async ({ request }) => {
 	const bill = await request.json();
 	const po = {
-		typeid: 'BPLS',
+		typeid: 'RPT',
 		connection: 'default',
-		refno: bill.appno,
-		paidby: bill.ownername,
-		paidbyaddress: bill.address,
-		amount: bill.amount,
+		refno: bill.refno,
+		paidby: bill.ledger.taxpayer.name,
+		paidbyaddress: bill.ledger.taxpayer.address,
+		amount: bill.totals.total,
 		params: {
-			qtr: bill.billtoqtr || 4
+			billid: bill.billid,
+			billtoqtr: bill.billtoqtr,
+			billtoyear: bill.billtoyear
 		}
 	};
 	try {
-		const res = await fetch(`${appServerUrl}/gdx/OnlineBusinessBillingService.createPaymentOrder`, {
+		const res = await fetch(`${appServerUrl}/gdx/OnlineLandTaxBillingService.createPaymentOrder`, {
 			method: 'POST',
 			'Content-Type': 'application/json',
 			body: JSON.stringify(po)
 		});
+
 		const data = await res.json();
 		if (res.ok && data.status !== 'ERROR') {
 			return {

@@ -9,7 +9,7 @@
 	import Button from '$lib/ui/button.svelte';
 	import Label from '$lib/ui/label.svelte';
 	import Error from '$lib/ui/error.svelte';
-	import GenerateQueue from '$lib/components/generate-queue.svelte';
+	import GenerateQueueOption from '$lib/components/queue-option.svelte';
 	import BillOption from '$lib/components/bill-option.svelte';
 	import ModalPrint from '$lib/ui/modal-print.svelte';
 	import { currencyFormat, isEmpty } from '$lib/helper.js';
@@ -63,9 +63,9 @@
 		<div class="my-28 mx-20">
 			<Input
 				bind:this={inputRef}
-				disabled={processing}
 				bind:value={entity.refno}
 				placeholder="Enter BIN"
+				disabled={processing}
 			/>
 			<div class="h-20">
 				{#if error}
@@ -141,7 +141,7 @@
 	{/if}
 
 	{#if mode === 'queue'}
-		<GenerateQueue queueHref="/queue/bpls" moduleHref="/bpls" />
+		<GenerateQueueOption queueHref="/queue/bpls" moduleHref="/bpls" />
 	{/if}
 
 	{#if openBillOption}
