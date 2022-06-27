@@ -198,17 +198,10 @@
 				<div class="print">
 					<h2 class="text-center text-4xl mt-5 text-bold">REAL PROPERTY TAX BILL</h2>
 					<h2 class="text-center text-2xl pt-2">Amount</h2>
-<<<<<<< HEAD
-					<h1 class="text-center text-4xl pt-5 text-bold mb-5">
-						{currencyFormat(entity.totals.total)}
-					</h1>
-					{entity.barcode}
-=======
 					<h1 class="text-center text-6xl pt-5 text-bold mb-5">
 						{currencyFormat(po.amount)}
 					</h1>
 					<p class="text-center text-2xl">{po.barcode}</p>
->>>>>>> 90c323f38b1c7c1174a99a7ecfc3590992419f1d
 				</div>
 			</ModalPrint>
 		{/if}
