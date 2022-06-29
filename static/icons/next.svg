@@ -3,14 +3,9 @@
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 274 274" style="enable-background:new 0 0 274 274;" xml:space="preserve">
 <style type="text/css">
-	.st0{fill:#F2F2F2;}
-	.st1{fill:#39B54A;}
+	.st0{fill:#39B54A;}
 </style>
 <g>
-	
-		<ellipse transform="matrix(0.9999 -1.221059e-02 1.221059e-02 0.9999 -1.6626 1.6831)" class="st0" cx="137" cy="137" rx="137" ry="137"/>
-	<g>
-		<polygon class="st1" points="237.3,85.9 202.8,51.3 100.5,153.6 71.2,124.4 36.7,158.9 100.5,222.7 		"/>
-	</g>
+	<polygon class="st0" points="237.3,85.9 202.8,51.3 100.5,153.6 71.2,124.4 36.7,158.9 100.5,222.7 	"/>
 </g>
 </svg>
