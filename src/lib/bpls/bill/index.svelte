@@ -13,6 +13,7 @@
 	import BillOption from '$lib/components/bill-option.svelte';
 	import ModalPrint from '$lib/ui/modal-print.svelte';
 	import { currencyFormat, isEmpty } from '$lib/helper.js';
+	import Barcode from 'svelte-barcode';
 
 	let inputRef = null;
 	let printBill = false;
@@ -157,12 +158,20 @@
 
 	{#if printBill}
 		<ModalPrint open={printBill} afterPrint={() => (printBill = false)}>
-			<h2 class="text-center text-4xl pt-5 pb-2 text-bold">BUSINESS BILLING</h2>
+			<h2 class="text-center text-3xl pt-5 pb-2 text-bold pl-10">BUSINESS BILLING</h2>
 			<h2 class="text-center text-2xl pt-2">Amount</h2>
 			<h1 class="text-center text-9xl pt-5 pb-5 text-bold mb-5 mt-10">
 				{po.amount}
 			</h1>
-			<p class="text-center text-2xl">{po.barcode}</p>
+			<div class="pl-40 pb-5 barcode bg-white">
+				<Barcode 
+					value='{po.barcode}'
+					elementTag='canvas'
+					options='{{
+						format: "CODE128"
+					}}'
+					/>
+			</div>
 		</ModalPrint>
 	{/if}
 </div>

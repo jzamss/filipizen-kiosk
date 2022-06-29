@@ -146,7 +146,7 @@ html, body{
         margin-top: 5px;
     }
     .print h2{
-        font-size: 16px !important;
+        font-size: 14px !important;
         margin: 0 !important;
         padding: 0 !important;
     }
@@ -200,8 +200,11 @@ html, body{
     .DontPrint{
         display: none !important;
     }
-    .qrcode{
-        width: 300px !important;
+    .barcode{
+        padding-left: 50px !important;
+    }
+    .barcode canvas {
+        width: 200px !important;
     }
 }
 
